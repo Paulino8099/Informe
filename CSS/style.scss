@@ -86,7 +86,7 @@ body {
 					grid-column: 1/11;
 					grid-row: 1/2;
 					.container-mes {
-						margin: 5px;
+						margin: 4px;
 						width: 140%;
 						position: relative;
 
@@ -302,6 +302,7 @@ body {
 							background: #72fe95;
 							width: 70px;
 							height: 35px;
+							transition: .5s;
 							&:active {
 								background: #72fe9599;
 							}
@@ -309,7 +310,7 @@ body {
 						.btn-guardar {
 							background: #02ab58;
 							height: 50px;
-							transition: .05s;
+							transition: .5s;
 							&:active {
 								background: #02ab5899;
 							}
@@ -318,6 +319,7 @@ body {
 							background: #1ffef3;
 							width: 70px;
 							height: 35px;
+							transition: .5s;
 							&:active {
 								background: #1ffef399;
 							}
