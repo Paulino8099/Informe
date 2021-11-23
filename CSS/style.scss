@@ -1,0 +1,473 @@
+$color-steelBlue: steelBlue;
+
+* {
+	font-family: 'nunito', sans-serif;
+}
+body {
+	background: LightBlue;
+	.caja-container-modal-hojaInforme {
+		width: 100%;
+		height: 100vh;
+
+		display: grid;
+		.container-modal-hojaInforme {
+			justify-self: center;
+			margin: 1% 0 250px 0;
+			width: 75%;
+			height: 80%;
+
+			display: grid;
+			grid-template-columns: repeat(10, auto);
+			grid-auto-rows: min-content;
+			// TITULO DEL MODAL
+			.container-title-modal-hojaInforme {
+				box-shadow: 0 -5px 10px #00000079;
+				padding: 0 10px;
+				margin-bottom: 0;
+				background: $color-steelBlue;
+				justify-self: center;
+				place-items: center;
+				text-align: center;
+				justify-content: space-between;
+				width: 200px;
+				height: 50px;
+				border-top: 3px solid #aaa;
+				border-left: 3px solid #aaa;
+				border-right: 3px solid #aaa;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				z-index: 2;
+
+				display: flex;
+				grid-column: 1/12;
+				grid-row: 1/2;
+				h3 {
+					font-size: 1.3rem;
+					color: #fff;
+				}
+				svg {
+					fill: #fff;
+					width: 40px;
+					height: 40px;
+				}
+			}
+			// CONTENEDOR DE TODO
+			.container-hojaInforme {
+				padding: 0 10px;
+				margin-top: 0;
+				box-shadow: 0 0 10px #00000079;
+				border: 3px solid #aaa;
+				width: 100%;
+				height: 500px;
+				background: $color-steelBlue;
+				border-radius: 10px;
+				overflow: auto;
+
+				display: grid;
+				grid-column: 1/11;
+				grid-row: 2/3;
+				grid-template-columns: repeat(10, auto);
+				grid-template-rows: repeat(10, auto);
+				&::-webkit-scrollbar {
+					width: 10px;
+					background: #aaaaaa;
+				}
+				&::-webkit-scrollbar-thumb {
+					justify-self: center;
+					width: 8px;
+					border-radius: 10px;
+					background-color: lightgray;
+				}
+				.container-mesAño {
+					justify-content: space-between;
+					align-items: center;
+
+					display: flex;
+					grid-column: 1/11;
+					grid-row: 1/2;
+					.container-mes {
+						margin: 5px;
+						width: 140%;
+						position: relative;
+
+						display: grid;
+						// contenedor del nombre para seleccionar el mes mediante una flecha hacia abajo y para el input
+						div {
+							align-items: center;
+							position: relative;
+
+							display: flex;
+							// titulo 'mes'
+							h3 {
+								font-weight: 800;
+								color: #fff;
+								font-size: 1.2rem;
+								margin: 0 3px 0 0;
+							}
+							span {
+								border-radius: 3px;
+								background: #fff;
+								width: 100%;
+								justify-content: space-between;
+								align-items: center;
+
+								display: flex;
+								input {
+									color: #404040;
+									font-weight: 800;
+									pointer-events: none;
+									width: 100%;
+									height: 20px;
+									background: none;
+									border-radius: 5px;
+									outline: none;
+									border: none;
+								}
+								span {
+									width: 15px;
+									height: 15px;
+									border: 1px solid gray;
+									margin: 0 2px;
+									&:active {
+										fill: #606060;
+										background: gainsboro;
+									}
+
+									svg {
+										width: 100%;
+										height: 100%;
+										fill: #404040;
+										transition: .3s;
+										&.rotate {
+											transform: rotateZ(180deg);
+										}
+									}
+								}
+							}
+						}
+						ol {
+							position: absolute;
+							list-style: none;
+							padding: 10px;
+							margin-top: 33px;
+							margin-right: 0;
+							right: -3px;
+							background: #fff;
+							z-index: 10;
+							width: max-content;
+							border-bottom-left-radius: 5px;
+							border-bottom-right-radius: 5px;
+							border-top-left-radius: 5px;
+							z-index: 12;
+							opacity: 0;
+							pointer-events: none;
+
+							display: grid;
+							&::before {
+								border-bottom-right-radius: 50px;
+								content: "";
+								background: #fff;
+								width: 15px;
+								height: 15px;
+								transform: rotateZ(45deg);
+								position: absolute;
+								top: -7px;
+								right: 4px;
+								z-index: 1;
+
+								display: grid;
+							}
+							&.active {
+								opacity: 1;
+								pointer-events: visible;
+							}
+							li {
+								font-weight: 900;
+								cursor: pointer;
+								border-top: 1px solid #909090;
+								color: #303030;
+								// &:hover {
+								// 	background: #30303099;
+								// }
+								&:active {
+									background: #505050;
+								}
+								&::selection {
+									background: none;
+								}
+							}
+						}
+					}
+					.container-año {
+						width: 100%;
+
+						display: grid;
+						div {
+							align-items: center;
+
+							display: flex;
+							margin-right: 0;
+							width: 100%;
+							h3 {
+								color: #fff;
+								margin-right: 3px;
+							}
+							input {
+								color: #404040;
+								font-weight: 800;
+								font-size: 1rem;
+								width: 100%;
+								height: 20px;
+								background: #fff;
+								border-radius: 5px;
+								outline: none;
+								border: none;
+								padding: 3px;
+								&::-webkit-inner-spin-button,
+								::-webkit-outer-spin-button {
+									-webkit-appearance: none;
+								}
+							}
+						}
+					}
+				}
+				// CONTENEDOR PARA LAS HORAS DE SERVICIO EN EL CAMPO
+				.container-servicioCampo {
+					margin: 10px;
+					place-self: center;
+					border-radius: 25px;
+					box-shadow: 0 0 5px #fff;
+					gap: 10px;
+					width: 90%;
+					height: min-content;
+					padding: 10px;
+
+					display: grid;
+					grid-column: 1/11;
+					grid-row: 2/3;
+					grid-template-columns: repeat(10, auto);
+					grid-template-rows: repeat(3, auto);
+					div {
+						align-items: center;
+						justify-self: start;
+						border-radius: 10px;
+						background: #aaaaaa;
+						height: 90%;
+						align-self: center;
+						box-shadow: 0 0 2px #000;
+
+						display: flex;
+						grid-column: 1/11;
+						h3 {
+							font-size: 1rem;
+							margin-left: 5px;
+							font-weight: 900;
+							color: #fff;
+						}
+						input {
+							margin-left: 5px;
+							background: $color-steelBlue;
+							border: none;
+							outline: none;
+							color: #fff;
+							border-bottom: 1px solid rgba(255, 255, 255, 0.746);
+							width: 32px;
+							height: 25px;
+							&::-webkit-inner-spin-button,
+							::-webkit-outer-spin-button {
+								-webkit-appearance: initial;
+							}
+							&::placeholder {
+								color: rgba(245, 245, 245, 0.746);
+							}
+						}
+					}
+					.container-botones {
+						width: 100%;
+						justify-content: space-between;
+						background: none;
+						box-shadow: none;
+
+						grid-column: 1/11;
+						grid-row: 10/11;
+						button {
+							border-radius: 5px;
+							border: none;
+							outline: none;
+							cursor: pointer;
+							color: #fff;
+						}
+
+						.btn-Historial {
+							background: #72fe95;
+							width: 70px;
+							height: 35px;
+							&:active {
+								background: #72fe9599;
+							}
+						}
+						.btn-guardar {
+							background: #02ab58;
+							height: 50px;
+							transition: .05s;
+							&:active {
+								background: #02ab5899;
+							}
+						}
+						.btn-verMas {
+							background: #1ffef3;
+							width: 70px;
+							height: 35px;
+							&:active {
+								background: #1ffef399;
+							}
+						}
+					}
+				}
+				.container-containerResultadoMes {
+					justify-self: center;
+					width: 90%;
+					height: max-content;
+					overflow-y: hidden;
+					overflow-x: auto;
+					border-radius: 15px;
+					margin: 0 5px 5px 10px;
+					background: rgba(245, 245, 245, 0.100);
+
+					display: flex;
+					flex-direction: row;
+					grid-column: 1/11;
+					grid-row: 3/4;
+					&::-webkit-scrollbar {
+						height: 5px;
+						border-radius: 10px;
+						background: #aaaaaa;
+					}
+					&::-webkit-scrollbar-thumb {
+						justify-self: center;
+						background-color: lightgray;
+					}
+
+					// CONTENEDOR DE LAS CARPETAS DE LOS RESULTADOS DEL MES EN EN CAMPO
+					div {
+						margin: 0 25PX;
+						align-self: center;
+						justify-self: center;
+						width: 90%;
+						height: min-content;
+
+						display: grid;
+						h3 {
+							text-align: center;
+							justify-self: center;
+							pointer-events: none;
+							width: min-content;
+							height: 25px;
+							border: none;
+							outline: none;
+							border-top: 2px solid gray;
+							border-left: 2px solid gray;
+							border-right: 2px solid gray;
+							border-top-left-radius: 15px;
+							border-top-right-radius: 15px;
+							font-family: cursive;
+							font-size: 1rem;
+							font-weight: 900;
+							background: #fff;
+							color: $color-steelBlue;
+							margin: 0;
+							padding: 0 5px;
+							z-index: 2;
+						}
+						div {
+							justify-self: center;
+							width: 100%;
+							height: 200px;
+							margin: 0 0 5px 0;
+							padding: 5px 0;
+							border-radius: 15px;
+							border: 2px solid gray;
+							background: #fff;
+
+							display: grid;
+							grid-template-columns: repeat(auto-fit, 1fr);
+							div {
+								margin: 2px auto;
+								padding: 5px;
+								border-radius: 10px;
+								width: 85%;
+								height: 15px;
+								align-items: center;
+								background: #aaaaaa;
+								box-shadow: 0 0 2px #000;
+								justify-content: space-between;
+
+								display: flex;
+								grid-column: 1/11;
+								h2 {
+									color: #fff;
+									font-weight: 900;
+									font-size: 1rem;
+								}
+								h1 {
+									color: #fff;
+									font-size: 1rem;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// @media (max-width: 800px) {
+	// 	.caja-container-modal-hojaInforme {
+	// 		width: 100%;
+	// 		height: 100vh;
+
+	// 		display: grid;
+	// 		.container-modal-hojaInforme {
+	// 			justify-self: center;
+	// 			align-self: center;
+	// 			width: 75%;
+	// 			height: 50%;
+
+	// 			display: grid;
+	// 			grid-template-columns: repeat(10, auto);
+	// 			grid-template-rows: repeat(10, auto);
+	// 			.container-title-modal-hojaInforme {
+	// 				background: $color-steelBlue;
+	// 				place-self: center;
+	// 				justify-content: space-between;
+	// 				width: 30%;
+	// 				height: 50%;
+	// 				border-top: 3px solid #aaaaaa;
+	// 				border-top-left-radius: 10px;
+	// 				border-top-right-radius: 10px;
+
+	// 				display: flex;
+	// 				grid-column: 1/11;
+	// 				grid-row: 1/2;
+	// 				h3 {
+	// 					color: #fff;
+	// 					text-align: center;
+	// 				}
+	// 				svg {
+	// 					fill: #fff;
+	// 					width: 40px;
+	// 				}
+	// 			}
+	// 			.container-hojaInforme {
+	// 				width: 100%;
+	// 				height: 100%;
+	// 				background: $color-steelBlue;
+
+	// 				display: grid;
+	// 				grid-column: 1/11;
+	// 				grid-row: 2/11;
+	// 			}
+	// 		}
+	// 	}
+	// }
+}

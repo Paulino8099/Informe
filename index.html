@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="caja-container-modal-hojaInforme">
+        <div class="container-modal-hojaInforme">
+            <!-- CONTENEDOR DEL TITULO DE TODO EL MODAL DE INFORME -->
+            <div class="container-title-modal-hojaInforme">
+                <h3>Hoja de Informe</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
+                </svg>
+            </div>
+            <!-- CONTENEDOR DE TODO EL CONTENIDO DE LA HOJA DE INFORME  -->
+            <div class="container-hojaInforme">
+                <!-- CONTENEDOR DEL NOMBRE Y DEL MES -->
+                <div class="container-mesAño">
+                    <div class="container-mes">
+                        <div>
+                            <h3>Mes:</h3>
+                            <span>
+                                <input class="input-mes" type="text" maxlength="9">
+                                <span class="content-btn-listaMes">
+                                    <svg class="svg-listaMes" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </span>
+                        </div>
+                        <ol class="lista-mes">
+                            <li>Enero</li>
+                            <li>Febrero</li>
+                            <li>Marzo</li>
+                            <li>Abril</li>
+                            <li>Mayo</li>
+                            <li>Junio</li>
+                            <li>Julio</li>
+                            <li>Agosto</li>
+                            <li>Septiembre</li>
+                            <li>Octubre</li>
+                            <li>Noviembre</li>
+                            <li>Diciembre</li>
+                        </ol>
+                    </div>
+                    <div class="container-año">
+                        <div>
+                            <h3>año:</h3>
+                            <input type="number" maxlength="4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENEDOR DE LAS HORAS PARA EL SERVICIO EN EL CAMPO -->
+                <div class="container-servicioCampo">
+                    <div class="container-horas">
+                        <h3>Horas:</h3>
+                        <input class="input-horas" id="input-horas" type="number" placeholder="click" maxlength="2">
+                    </div>
+                    <div class="container-Revisitas">
+                        <h3>Revisitas:</h3>
+                        <input class="input-revisitas" type="number" placeholder="click" maxlength="2">
+                    </div>
+                    <div class="container-comentarios">
+                        <h3>Comentarios</h3>
+                        <input class="input-comentarios" type="number" placeholder="click" maxlength="2">
+                    </div>
+                    <div class="container-publicaciones">
+                        <h3>Publicaciones:</h3>
+                        <input class="input-publicaciones" type="number" placeholder="click" maxlength="2">
+                    </div>
+                    <div class="container-cursosBiblicos">
+                        <h3>Cursos Bíblicos:</h3>
+                        <input class="input-cursosBiblicos" type="number" placeholder="click" maxlength="2">
+                    </div>
+                    <div class="container-presentacionVideos">
+                        <h3>Presentación de Vídeos:</h3>
+                        <input class="input-presentacionVideo" type="number" placeholder="click" maxlength="2">
+                    </div>
+                    <div class="container-botones">
+                        <button class="btn-Historial">Historial</button>
+                        <button class="btn-guardar">Guardar</button>
+                        <button class="btn-verMas">Ver Mas</button>
+                    </div>
+                </div>
+                <div class="container-containerResultadoMes">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/app.js"></script>
+</body>
+
+</html>

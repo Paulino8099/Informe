@@ -1,0 +1,573 @@
+@charset "UTF-8";
+* {
+  font-family: 'nunito', sans-serif;
+}
+
+body {
+  background: LightBlue;
+}
+
+body .caja-container-modal-hojaInforme {
+  width: 100%;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin: 1% 0 250px 0;
+  width: 75%;
+  height: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[10];
+      grid-template-columns: repeat(10, auto);
+  grid-auto-rows: -webkit-min-content;
+  grid-auto-rows: min-content;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-title-modal-hojaInforme {
+  -webkit-box-shadow: 0 -5px 10px #00000079;
+          box-shadow: 0 -5px 10px #00000079;
+  padding: 0 10px;
+  margin-bottom: 0;
+  background: steelBlue;
+  justify-self: center;
+  place-items: center;
+  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 200px;
+  height: 50px;
+  border-top: 3px solid #aaa;
+  border-left: 3px solid #aaa;
+  border-right: 3px solid #aaa;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 11;
+  grid-column: 1/12;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-title-modal-hojaInforme h3 {
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-title-modal-hojaInforme svg {
+  fill: #fff;
+  width: 40px;
+  height: 40px;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme {
+  padding: 0 10px;
+  margin-top: 0;
+  -webkit-box-shadow: 0 0 10px #00000079;
+          box-shadow: 0 0 10px #00000079;
+  border: 3px solid #aaa;
+  width: 100%;
+  height: 500px;
+  background: steelBlue;
+  border-radius: 10px;
+  overflow: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1/11;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-columns: (auto)[10];
+      grid-template-columns: repeat(10, auto);
+  -ms-grid-rows: (auto)[10];
+      grid-template-rows: repeat(10, auto);
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme::-webkit-scrollbar {
+  width: 10px;
+  background: #aaaaaa;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme::-webkit-scrollbar-thumb {
+  justify-self: center;
+  width: 8px;
+  border-radius: 10px;
+  background-color: lightgray;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1/11;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes {
+  margin: 5px;
+  width: 140%;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div h3 {
+  font-weight: 800;
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0 3px 0 0;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span {
+  border-radius: 3px;
+  background: #fff;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span input {
+  color: #404040;
+  font-weight: 800;
+  pointer-events: none;
+  width: 100%;
+  height: 20px;
+  background: none;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span {
+  width: 15px;
+  height: 15px;
+  border: 1px solid gray;
+  margin: 0 2px;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span:active {
+  fill: #606060;
+  background: gainsboro;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span svg {
+  width: 100%;
+  height: 100%;
+  fill: #404040;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span svg.rotate {
+  -webkit-transform: rotateZ(180deg);
+          transform: rotateZ(180deg);
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol {
+  position: absolute;
+  list-style: none;
+  padding: 10px;
+  margin-top: 33px;
+  margin-right: 0;
+  right: -3px;
+  background: #fff;
+  z-index: 10;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  z-index: 12;
+  opacity: 0;
+  pointer-events: none;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol::before {
+  border-bottom-right-radius: 50px;
+  content: "";
+  background: #fff;
+  width: 15px;
+  height: 15px;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+  position: absolute;
+  top: -7px;
+  right: 4px;
+  z-index: 1;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol.active {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li {
+  font-weight: 900;
+  cursor: pointer;
+  border-top: 1px solid #909090;
+  color: #303030;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li:active {
+  background: #505050;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li::-moz-selection {
+  background: none;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li::selection {
+  background: none;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 0;
+  width: 100%;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div h3 {
+  color: #fff;
+  margin-right: 3px;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div input {
+  color: #404040;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 100%;
+  height: 20px;
+  background: #fff;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 3px;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div input::-webkit-inner-spin-button,
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div input ::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo {
+  margin: 10px;
+  place-self: center;
+  border-radius: 25px;
+  -webkit-box-shadow: 0 0 5px #fff;
+          box-shadow: 0 0 5px #fff;
+  gap: 10px;
+  width: 90%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1/11;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-columns: (auto)[10];
+      grid-template-columns: repeat(10, auto);
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-self: start;
+  border-radius: 10px;
+  background: #aaaaaa;
+  height: 90%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-shadow: 0 0 2px #000;
+          box-shadow: 0 0 2px #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1/11;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div h3 {
+  font-size: 1rem;
+  margin-left: 5px;
+  font-weight: 900;
+  color: #fff;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input {
+  margin-left: 5px;
+  background: steelBlue;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.746);
+  width: 32px;
+  height: 25px;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input::-webkit-inner-spin-button,
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input ::-webkit-outer-spin-button {
+  -webkit-appearance: initial;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input::-webkit-input-placeholder {
+  color: rgba(245, 245, 245, 0.746);
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input:-ms-input-placeholder {
+  color: rgba(245, 245, 245, 0.746);
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input::-ms-input-placeholder {
+  color: rgba(245, 245, 245, 0.746);
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input::placeholder {
+  color: rgba(245, 245, 245, 0.746);
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones {
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1/11;
+  -ms-grid-row: 10;
+  -ms-grid-row-span: 1;
+  grid-row: 10/11;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones button {
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial {
+  background: #72fe95;
+  width: 70px;
+  height: 35px;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial:active {
+  background: #72fe9599;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar {
+  background: #02ab58;
+  height: 50px;
+  -webkit-transition: .05s;
+  transition: .05s;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar:active {
+  background: #02ab5899;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-verMas {
+  background: #1ffef3;
+  width: 70px;
+  height: 35px;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-verMas:active {
+  background: #1ffef399;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes {
+  justify-self: center;
+  width: 90%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  overflow-y: hidden;
+  overflow-x: auto;
+  border-radius: 15px;
+  margin: 0 5px 5px 10px;
+  background: rgba(245, 245, 245, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1/11;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes::-webkit-scrollbar {
+  height: 5px;
+  border-radius: 10px;
+  background: #aaaaaa;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes::-webkit-scrollbar-thumb {
+  justify-self: center;
+  background-color: lightgray;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes div {
+  margin: 0 25PX;
+  -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 90%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes div h3 {
+  text-align: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  pointer-events: none;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  height: 25px;
+  border: none;
+  outline: none;
+  border-top: 2px solid gray;
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-family: cursive;
+  font-size: 1rem;
+  font-weight: 900;
+  background: #fff;
+  color: steelBlue;
+  margin: 0;
+  padding: 0 5px;
+  z-index: 2;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes div div {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 100%;
+  height: 200px;
+  margin: 0 0 5px 0;
+  padding: 5px 0;
+  border-radius: 15px;
+  border: 2px solid gray;
+  background: #fff;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 1fr);
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes div div div {
+  margin: 2px auto;
+  padding: 5px;
+  border-radius: 10px;
+  width: 85%;
+  height: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #aaaaaa;
+  -webkit-box-shadow: 0 0 2px #000;
+          box-shadow: 0 0 2px #000;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1/11;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes div div div h2 {
+  color: #fff;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes div div div h1 {
+  color: #fff;
+  font-size: 1rem;
+}
+/*# sourceMappingURL=style.css.map */
