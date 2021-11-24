@@ -15,8 +15,16 @@ let inputAño = document.querySelector(".input-año");
 // TODOS LOS VALORES DE LOS INPUT
 let inputAñoValue = inputAño.value;
 
+// VARIABLES PARA LA VENTANA EMERGENTE POPUP
+let ventanaPopup = document.querySelector(".contenedor-popup");
+let textAlertPopup = document.querySelector(".text-alert-popup");
 
+//VENTANA EMERGENTE POPUP 
 
+let btnVentanaPopup = document.querySelector(".btn-alert-popup");
+btnVentanaPopup.addEventListener('click', () => {
+    ventanaPopup.classList.remove("active");
+});
 
 // Esta función es para guardar el valor del mes en INPUT MES al hacer click en cualquiera de los meses que se encuentran en la lista 
 
@@ -63,6 +71,21 @@ document.querySelector(".content-btn-listaMes").addEventListener('click', () => 
     document.querySelector(".svg-listaMes").classList.toggle('rotate');
 })
 
+function evaluarCampoAño() {
+    if (inputAño.value === '') {
+        textAlertPopup.innerHTML = `¡El campo "año" está vacío! ${'<br>'} Debe de introducir un año.`;
+        // Ventana Popup
+        ventanaPopup.classList.add("active");
+    } else if (inputAño.value != '' && !(inputAño.value >= 2021 && inputAño.value <= 2025)) {
+        textAlertPopup.innerHTML = `¡Debe de proporcionar un año correspodiente a: 2021-2025!`;
+        // Ventana Popup
+        ventanaPopup.classList.add("active");
+    } else if (inputMes.value === '') {
+        textAlertPopup.innerHTML = `¡Por favor, seleccione un mes!`;
+        // Ventana Popup
+        ventanaPopup.classList.add("active");
+    }
+}
 
 btnGuardar.addEventListener("click", function () {
     extraerDatosLocalStorage();
@@ -73,17 +96,7 @@ btnGuardar.addEventListener("click", function () {
     inputPublicaciones.value = '';
     inputCursosBiblicos.value = '';
     inputPresentacionVideos.value = '';
-
-
-    let mensajeError = document.querySelector(".mensaje-error");
-
-    if (inputAñoValue == '') {
-        mensajeError.style.animation = 'mensajeError 5s linear';
-        mensajeError.innerHTML = `¡El campo de año no debe de estar vacío!`;
-    } else if (!(inputAñoValue >= 2021 && inputAñoValue <= 2025)) {
-        mensajeError.style.animation = 'mensajeError 5s linear';
-        mensajeError.innerHTML = `¡Debe de proporcionar un año (2021-2025)!`;
-    };
+    evaluarCampoAño();
 });
 
 function guardarDatosLocalStorage() {
@@ -314,10 +327,6 @@ function extraerDatosLocalStorage() {
             let datosLocalStoragePresentacionVideos = localStorage.getItem(`PresentacionVideos (${inputMesValue}/${2021})`);
 
             let arrayHoras = datosLocalStorageHoras;
-            let arrayona = [arrayHoras];
-            // let arrayona1 = Math.arrayona;
-            // for (i = 0; i < arrayona.length; i++)
-            console.log(arrayona.reverse())
             if (inputMes.value != '' && (arrayHoras === inputMes.value)) {
 
                 // if (inputMes.value ==)
