@@ -12,8 +12,8 @@ body {
 		display: grid;
 		.container-modal-hojaInforme {
 			justify-self: center;
-			margin: 1% 0 250px 0;
-			width: 75%;
+			margin: 1% 0 50px 0;
+			width: 90%;
 			height: 80%;
 
 			display: grid;
@@ -81,13 +81,14 @@ body {
 				.container-mesAño {
 					justify-content: space-between;
 					align-items: center;
+					gap: 15px;
 
 					display: flex;
 					grid-column: 1/11;
 					grid-row: 1/2;
 					.container-mes {
 						margin: 4px;
-						width: 140%;
+						width: 130%;
 						position: relative;
 
 						display: grid;
@@ -220,6 +221,7 @@ body {
 								outline: none;
 								border: none;
 								padding: 3px;
+								margin-right: 5px;
 								&::-webkit-inner-spin-button,
 								::-webkit-outer-spin-button {
 									-webkit-appearance: none;
@@ -234,10 +236,10 @@ body {
 					place-self: center;
 					border-radius: 25px;
 					box-shadow: 0 0 5px #fff;
-					gap: 10px;
+					gap: 5px;
 					width: 90%;
 					height: min-content;
-					padding: 10px;
+					padding: 10px 10px 0 10px;
 
 					display: grid;
 					grid-column: 1/11;
@@ -245,6 +247,7 @@ body {
 					grid-template-columns: repeat(10, auto);
 					grid-template-rows: repeat(3, auto);
 					div {
+						margin-bottom: 0;
 						align-items: center;
 						justify-self: start;
 						border-radius: 10px;
@@ -281,6 +284,7 @@ body {
 					}
 					.container-botones {
 						width: 100%;
+						margin-bottom: 5px;
 						justify-content: space-between;
 						background: none;
 						box-shadow: none;
@@ -485,7 +489,6 @@ body {
 							}
 						}
 						h3 {
-							// margin-top: 0;
 							color: #ff0000;
 							text-align: center;
 							animation: entradaTitulo ease .5s forwards;

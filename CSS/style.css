@@ -17,8 +17,8 @@ body .caja-container-modal-hojaInforme {
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme {
   -ms-grid-column-align: center;
       justify-self: center;
-  margin: 1% 0 250px 0;
-  width: 75%;
+  margin: 1% 0 50px 0;
+  width: 90%;
   height: 80%;
   display: -ms-grid;
   display: grid;
@@ -113,6 +113,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,7 +127,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
 
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes {
   margin: 4px;
-  width: 140%;
+  width: 130%;
   position: relative;
   display: -ms-grid;
   display: grid;
@@ -296,6 +297,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   outline: none;
   border: none;
   padding: 3px;
+  margin-right: 5px;
 }
 
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div input::-webkit-inner-spin-button,
@@ -309,12 +311,12 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   border-radius: 25px;
   -webkit-box-shadow: 0 0 5px #fff;
           box-shadow: 0 0 5px #fff;
-  gap: 10px;
+  gap: 5px;
   width: 90%;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   display: -ms-grid;
   display: grid;
   -ms-grid-column: 1;
@@ -330,6 +332,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
 }
 
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div {
+  margin-bottom: 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -390,6 +393,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
 
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones {
   width: 100%;
+  margin-bottom: 5px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
