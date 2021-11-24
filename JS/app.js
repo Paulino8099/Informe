@@ -3,13 +3,19 @@ let btnGuardar = document.querySelector(".btn-guardar");
 let btnVerMas = document.querySelector(".btn-verMas");
 let btnHistorial = document.querySelector(".btn-historial");
 
-// VARIABLES PARA TODAS LAS ACTIVIDADES EN EL CAMPO
+// VARIABLES PARA TODOS LOS INPUT
 var inputHoras = document.getElementById("input-horas");
 let inputRevisitas = document.querySelector(".input-revisitas");
 let inputComentarios = document.querySelector(".input-comentarios");
 let inputPublicaciones = document.querySelector(".input-publicaciones");
 let inputCursosBiblicos = document.querySelector(".input-cursosBiblicos");
 let inputPresentacionVideos = document.querySelector(".input-presentacionVideo");
+let inputAño = document.querySelector(".input-año");
+
+// TODOS LOS VALORES DE LOS INPUT
+let inputAñoValue = inputAño.value;
+
+
 
 
 // Esta función es para guardar el valor del mes en INPUT MES al hacer click en cualquiera de los meses que se encuentran en la lista 
@@ -67,11 +73,22 @@ btnGuardar.addEventListener("click", function () {
     inputPublicaciones.value = '';
     inputCursosBiblicos.value = '';
     inputPresentacionVideos.value = '';
-})
+
+
+    let mensajeError = document.querySelector(".mensaje-error");
+
+    if (inputAñoValue == '') {
+        mensajeError.style.animation = 'mensajeError 5s linear';
+        mensajeError.innerHTML = `¡El campo de año no debe de estar vacío!`;
+    } else if (!(inputAñoValue >= 2021 && inputAñoValue <= 2025)) {
+        mensajeError.style.animation = 'mensajeError 5s linear';
+        mensajeError.innerHTML = `¡Debe de proporcionar un año (2021-2025)!`;
+    };
+});
 
 function guardarDatosLocalStorage() {
 
-    if (inputMes.value != '') {
+    if (inputMes.value != '' && (inputAño.value >= 2021 && inputAño.value <= 2023)) {
         /* Aqui lo que trato de hacer es que solo se van a guardar las horas en caso de que el 
           input de horas se encuntra con datos de lo contrario, no se va a enviar nada al localStorage*/
         if (inputHoras.value != '') { guardarHoras() }
@@ -92,7 +109,7 @@ function guardarDatosLocalStorage() {
             if (inputMesValue == 'Diciembre') inputMesValue = 12;
 
             let inputHorasValue = inputHoras.value;
-            let mesAñoHoras = `Horas (${inputMesValue}/${2021})`;
+            let mesAñoHoras = `Horas (${inputMesValue}/${inputAño.value})`;
             // SI LOCAL STORAGE NO CONTIENE NINGUN DATO SE LE ENVIA UNO NUEVO
             if (localStorage.getItem(mesAñoHoras) === null) {
                 let array = [inputHorasValue, inputMesValue];
@@ -296,7 +313,14 @@ function extraerDatosLocalStorage() {
             let datosLocalStorageCursosBiblicos = localStorage.getItem(`CursosBiblicos (${inputMesValue}/${2021})`);
             let datosLocalStoragePresentacionVideos = localStorage.getItem(`PresentacionVideos (${inputMesValue}/${2021})`);
 
-            if (inputMes.value != '') {
+            let arrayHoras = datosLocalStorageHoras;
+            let arrayona = [arrayHoras];
+            // let arrayona1 = Math.arrayona;
+            // for (i = 0; i < arrayona.length; i++)
+            console.log(arrayona.reverse())
+            if (inputMes.value != '' && (arrayHoras === inputMes.value)) {
+
+                // if (inputMes.value ==)
                 contenedorResultadoDelMes.innerHTML += ``;
                 contenedorResultadoDelMes.innerHTML += `<div>
                                                         <h3>${inputMes.value}</h3>

@@ -186,9 +186,6 @@ body {
 								cursor: pointer;
 								border-top: 1px solid #909090;
 								color: #303030;
-								// &:hover {
-								// 	background: #30303099;
-								// }
 								&:active {
 									background: #505050;
 								}
@@ -307,13 +304,52 @@ body {
 								background: #72fe9599;
 							}
 						}
-						.btn-guardar {
-							background: #02ab58;
+						.container-btn-guardar {
+							border-radius: 5px;
+							width: 70px;
 							height: 50px;
-							
-							transition: .5s;
-							&:active {
-								background: #02ab5899;
+							position: relative;
+							display: grid;
+							h3 {
+								text-align: center;
+								font-size: .8rem;
+								justify-self: center;
+								min-width: 200px;
+								color: #ff0000;
+								position: absolute;
+								z-index: 20;
+								background: #fff;
+								padding: 3px 5px;
+								border-radius: 5px;
+								border: 1px solid #ff0000;
+								margin-top: -75px;
+								opacity: 0;
+								&.active {
+									transition: .3s;
+									opacity: 1;
+									// animation: mensajeError 5s linear;
+									@keyframes mensajeError {
+										0% {
+											opacity: 1;
+										}
+										100% {
+											opacity: 0;
+										}
+									}
+								}
+							}
+							.btn-guardar {
+								width: 100%;
+								height: 100%;
+								background: #02ab58;
+								border: none;
+								outline: none;
+								border-radius: 5px;
+								cursor: pointer;
+								transition: .5s;
+								&:active {
+								background: #11834c;
+								}
 							}
 						}
 						.btn-verMas {
