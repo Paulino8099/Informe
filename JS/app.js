@@ -11,6 +11,7 @@ let inputPublicaciones = document.querySelector(".input-publicaciones");
 let inputCursosBiblicos = document.querySelector(".input-cursosBiblicos");
 let inputPresentacionVideos = document.querySelector(".input-presentacionVideo");
 let inputAño = document.querySelector(".input-año");
+let inputMes = document.querySelector(".input-mes");
 
 // TODOS LOS VALORES DE LOS INPUT
 let inputAñoValue = inputAño.value;
@@ -26,13 +27,28 @@ btnVentanaPopup.addEventListener('click', () => {
     ventanaPopup.classList.remove("active");
 });
 
+// ============================================================================================================
+// ============================================================================================================
+// ==================================Carga de todas las funciones==============================================
+// ============================================================================================================
+// ============================================================================================================
+addEventListener('DOMContentLoaded', function () {
+    // Functión para agregar escucha btn de la lista para seleccionar los años de las carpetas
+    listDeploy();
+    // Función para seleccionar un año para sacar los datos del localStorage correspodiente al año selecionado
+    selectionFileYears()
+    // Función para guardar todos los datos en el localStorage
+    btnSaveData();
+    // Función para seleccionar el mes mediante algoritmo
+    seleccionMes();
+});
+
+
 // Esta función es para guardar el valor del mes en INPUT MES al hacer click en cualquiera de los meses que se encuentran en la lista 
 
 
-let inputMes = document.querySelector(".input-mes");
 
 let listaMes = document.querySelector(".lista-mes");
-seleccionMes()
 function seleccionMes() {
     // Con esta algoritmo podemos extraer los elementos hijos de la lista de los meses ya que al ser una lista esta genera un arreglo que podemos extraer facilmente.
     let hijos = listaMes.children;
@@ -42,8 +58,6 @@ function seleccionMes() {
             // Con este algoritmo podemos extraer el VALOR del elemento donde se escuche el click
             let extraerValorList = hijos[i].childNodes[0].nodeValue;
             inputMes.value = extraerValorList;
-            // Ejecutar la funcion para extraer valores del local Storage.
-            extraerDatosLocalStorage()
         })
     }
 }
@@ -87,17 +101,18 @@ function evaluarCampoAño() {
     }
 }
 
-btnGuardar.addEventListener("click", function () {
-    extraerDatosLocalStorage();
-    guardarDatosLocalStorage();
-    inputHoras.value = '';
-    inputRevisitas.value = '';
-    inputComentarios.value = '';
-    inputPublicaciones.value = '';
-    inputCursosBiblicos.value = '';
-    inputPresentacionVideos.value = '';
-    evaluarCampoAño();
-});
+function btnSaveData() {
+    btnGuardar.addEventListener("click", function () {
+        guardarDatosLocalStorage();
+        inputHoras.value = '';
+        inputRevisitas.value = '';
+        inputComentarios.value = '';
+        inputPublicaciones.value = '';
+        inputCursosBiblicos.value = '';
+        inputPresentacionVideos.value = '';
+        evaluarCampoAño();
+    });
+}
 
 function guardarDatosLocalStorage() {
 
@@ -107,31 +122,15 @@ function guardarDatosLocalStorage() {
         if (inputHoras.value != '') { guardarHoras() }
         function guardarHoras() {
 
-            let inputMesValue = inputMes.value;
-            if (inputMesValue == 'Enero') inputMesValue = 1;
-            if (inputMesValue == 'Febrero') inputMesValue = 2;
-            if (inputMesValue == 'Marzo') inputMesValue = 3;
-            if (inputMesValue == 'Abril') inputMesValue = 4;
-            if (inputMesValue == 'Mayo') inputMesValue = 5;
-            if (inputMesValue == 'Junio') inputMesValue = 6;
-            if (inputMesValue == 'Julio') inputMesValue = 7;
-            if (inputMesValue == 'Agosto') inputMesValue = 8;
-            if (inputMesValue == 'Septiembre') inputMesValue = 9;
-            if (inputMesValue == 'Octubre') inputMesValue = 10;
-            if (inputMesValue == 'Noviembre') inputMesValue = 11;
-            if (inputMesValue == 'Diciembre') inputMesValue = 12;
-
             let inputHorasValue = inputHoras.value;
-            let mesAñoHoras = `Horas (${inputMesValue}/${inputAño.value})`;
+            let mesAñoHoras = `Horas (${inputMes.value}/${inputAño.value})`;
             // SI LOCAL STORAGE NO CONTIENE NINGUN DATO SE LE ENVIA UNO NUEVO
             if (localStorage.getItem(mesAñoHoras) === null) {
-                let array = [inputHorasValue, inputMesValue];
-                localStorage.setItem(mesAñoHoras, array);
+                localStorage.setItem(mesAñoHoras, inputHorasValue);
             } else {
                 let datosLocalStorage = localStorage.getItem(mesAñoHoras);
                 datosLocalStorage = parseInt(inputHorasValue) + parseInt(datosLocalStorage);
-                let array = [datosLocalStorage, inputMesValue];
-                localStorage.setItem(mesAñoHoras, array);
+                localStorage.setItem(mesAñoHoras, inputHorasValue);
             }
         }
 
@@ -140,151 +139,70 @@ function guardarDatosLocalStorage() {
         if (inputRevisitas.value != '') { guardarRevisitas() };
         function guardarRevisitas() {
 
-            let inputMesValue = inputMes.value;
-            if (inputMesValue == 'Enero') inputMesValue = 1;
-            if (inputMesValue == 'Febrero') inputMesValue = 2;
-            if (inputMesValue == 'Marzo') inputMesValue = 3;
-            if (inputMesValue == 'Abril') inputMesValue = 4;
-            if (inputMesValue == 'Mayo') inputMesValue = 5;
-            if (inputMesValue == 'Junio') inputMesValue = 6;
-            if (inputMesValue == 'Julio') inputMesValue = 7;
-            if (inputMesValue == 'Agosto') inputMesValue = 8;
-            if (inputMesValue == 'Septiembre') inputMesValue = 9;
-            if (inputMesValue == 'Octubre') inputMesValue = 10;
-            if (inputMesValue == 'Noviembre') inputMesValue = 11;
-            if (inputMesValue == 'Diciembre') inputMesValue = 12;
-
             // Valor del input 'revisitas'
             let inputRevisitasValue = inputRevisitas.value;
-            let mesAñoRevisitas = `Revisitas (${inputMesValue}/${2021})`;
+            let mesAñoRevisitas = `Revisitas (${inputMes.value}/${2021})`;
             if (localStorage.getItem(mesAñoRevisitas) === null) {
-                let array = [inputRevisitasValue, inputMesValue];
-                localStorage.setItem(mesAñoRevisitas, array)
+                localStorage.setItem(mesAñoRevisitas, inputRevisitasValue)
             } else {
                 let datosLocalStorage = localStorage.getItem(mesAñoRevisitas);
                 datosLocalStorage = parseInt(inputRevisitasValue) + parseInt(datosLocalStorage);
-                let array = [datosLocalStorage, inputMesValue];
-                localStorage.setItem(mesAñoRevisitas, array);
+                localStorage.setItem(mesAñoRevisitas, inputRevisitasValue);
             }
         };
 
         if (inputComentarios.value != '') { guardarComentarios() };
         function guardarComentarios() {
 
-            let inputMesValue = inputMes.value;
-            if (inputMesValue == 'Enero') inputMesValue = 1;
-            if (inputMesValue == 'Febrero') inputMesValue = 2;
-            if (inputMesValue == 'Marzo') inputMesValue = 3;
-            if (inputMesValue == 'Abril') inputMesValue = 4;
-            if (inputMesValue == 'Mayo') inputMesValue = 5;
-            if (inputMesValue == 'Junio') inputMesValue = 6;
-            if (inputMesValue == 'Julio') inputMesValue = 7;
-            if (inputMesValue == 'Agosto') inputMesValue = 8;
-            if (inputMesValue == 'Septiembre') inputMesValue = 9;
-            if (inputMesValue == 'Octubre') inputMesValue = 10;
-            if (inputMesValue == 'Noviembre') inputMesValue = 11;
-            if (inputMesValue == 'Diciembre') inputMesValue = 12;
-
             let inputComentariosValue = inputComentarios.value;
-            let comentariosMesAño = `Comentarios (${inputMesValue}/${2021})`;
+            let comentariosMesAño = `Comentarios (${inputMes.value}/${2021})`;
             if (localStorage.getItem(comentariosMesAño) === null) {
-                let array = [inputComentariosValue, inputMesValue];
-                localStorage.setItem(comentariosMesAño, array);
+                localStorage.setItem(comentariosMesAño, inputComentariosValue);
             } else {
                 let datosLocalStorage = localStorage.getItem(comentariosMesAño);
                 datosLocalStorage = parseInt(datosLocalStorage) + parseInt(inputComentariosValue);
-                let array = [datosLocalStorage, inputMesValue];
-                localStorage.setItem(comentariosMesAño, array);
+                localStorage.setItem(comentariosMesAño, inputComentariosValue);
             }
         };
 
         if (inputPublicaciones.value != '') { guardarPublicaciones() };
         function guardarPublicaciones() {
 
-            let inputMesValue = inputMes.value;
-            if (inputMesValue == 'Enero') inputMesValue = 1;
-            if (inputMesValue == 'Febrero') inputMesValue = 2;
-            if (inputMesValue == 'Marzo') inputMesValue = 3;
-            if (inputMesValue == 'Abril') inputMesValue = 4;
-            if (inputMesValue == 'Mayo') inputMesValue = 5;
-            if (inputMesValue == 'Junio') inputMesValue = 6;
-            if (inputMesValue == 'Julio') inputMesValue = 7;
-            if (inputMesValue == 'Agosto') inputMesValue = 8;
-            if (inputMesValue == 'Septiembre') inputMesValue = 9;
-            if (inputMesValue == 'Octubre') inputMesValue = 10;
-            if (inputMesValue == 'Noviembre') inputMesValue = 11;
-            if (inputMesValue == 'Diciembre') inputMesValue = 12;
-
             let inputPublicacionesValue = inputPublicaciones.value;
-            let publicacionesMesAño = `Publicaciones (${inputMesValue}/${2021})`;
+            let publicacionesMesAño = `Publicaciones (${inputMes.value}/${2021})`;
             if (localStorage.getItem(publicacionesMesAño) === null) {
-                let array = [inputPublicacionesValue, inputMesValue];
-                localStorage.setItem(publicacionesMesAño, array);
+                localStorage.setItem(publicacionesMesAño, inputPublicacionesValue);
             } else {
                 let datosLocalStorage = localStorage.getItem(publicacionesMesAño);
                 datosLocalStorage = parseInt(datosLocalStorage) + parseInt(inputPublicacionesValue);
-                let array = [datosLocalStorage, inputMesValue];
-                localStorage.setItem(publicacionesMesAño, array);
+                localStorage.setItem(publicacionesMesAño, inputPublicacionesValue);
             }
         };
 
         if (inputCursosBiblicos.value != '') { guardarCursosBiblicos() };
         function guardarCursosBiblicos() {
 
-            let inputMesValue = inputMes.value;
-            if (inputMesValue == 'Enero') inputMesValue = 1;
-            if (inputMesValue == 'Febrero') inputMesValue = 2;
-            if (inputMesValue == 'Marzo') inputMesValue = 3;
-            if (inputMesValue == 'Abril') inputMesValue = 4;
-            if (inputMesValue == 'Mayo') inputMesValue = 5;
-            if (inputMesValue == 'Junio') inputMesValue = 6;
-            if (inputMesValue == 'Julio') inputMesValue = 7;
-            if (inputMesValue == 'Agosto') inputMesValue = 8;
-            if (inputMesValue == 'Septiembre') inputMesValue = 9;
-            if (inputMesValue == 'Octubre') inputMesValue = 10;
-            if (inputMesValue == 'Noviembre') inputMesValue = 11;
-            if (inputMesValue == 'Diciembre') inputMesValue = 12;
-
             let inputCursosBiblicosValue = inputCursosBiblicos.value;
-            let cursosBiblicosMesAño = `CursosBiblicos (${inputMesValue}/${2021})`;
+            let cursosBiblicosMesAño = `CursosBiblicos (${inputMes.value}/${2021})`;
             if (localStorage.getItem(cursosBiblicosMesAño) === null) {
-                let array = [inputCursosBiblicosValue, inputMesValue];
-                localStorage.setItem(cursosBiblicosMesAño, array);
+                localStorage.setItem(cursosBiblicosMesAño, inputCursosBiblicosValue);
             } else {
                 let datosLocalStorage = localStorage.getItem(cursosBiblicosMesAño);
                 datosLocalStorage = parseInt(datosLocalStorage) + parseInt(inputCursosBiblicosValue);
-                let array = [datosLocalStorage, inputMesValue];
-                localStorage.setItem(cursosBiblicosMesAño, array);
+                localStorage.setItem(cursosBiblicosMesAño, inputCursosBiblicosValue);
             }
         }
 
         if (inputPresentacionVideos.value != '') { guardarPresentacionVideos() };
         function guardarPresentacionVideos() {
-            let inputMesValue = inputMes.value;
-            if (inputMesValue == 'Enero') inputMesValue = 1;
-            if (inputMesValue == 'Febrero') inputMesValue = 2;
-            if (inputMesValue == 'Marzo') inputMesValue = 3;
-            if (inputMesValue == 'Abril') inputMesValue = 4;
-            if (inputMesValue == 'Mayo') inputMesValue = 5;
-            if (inputMesValue == 'Junio') inputMesValue = 6;
-            if (inputMesValue == 'Julio') inputMesValue = 7;
-            if (inputMesValue == 'Agosto') inputMesValue = 8;
-            if (inputMesValue == 'Septiembre') inputMesValue = 9;
-            if (inputMesValue == 'Octubre') inputMesValue = 10;
-            if (inputMesValue == 'Noviembre') inputMesValue = 11;
-            if (inputMesValue == 'Diciembre') inputMesValue = 12;
-
-
             let inputPresentacionVideosValue = inputPresentacionVideos.value;
-            let presentacionVideoMesAño = `PresentacionVideos (${inputMesValue}/${2021})`;
+            let presentacionVideoMesAño = `PresentacionVideos (${inputMes.value}/${2021})`;
             if (localStorage.getItem(presentacionVideoMesAño) === null) {
-                let array = [inputPresentacionVideosValue, inputMesValue];
-                localStorage.setItem(presentacionVideoMesAño, array);
+                localStorage.setItem(presentacionVideoMesAño, inputPresentacionVideosValue);
             } else {
                 let datosLocalStorage = localStorage.getItem(presentacionVideoMesAño);
                 datosLocalStorage = parseInt(datosLocalStorage) + parseInt(inputPresentacionVideosValue);
-                let array = [datosLocalStorage, inputMesValue]
-                localStorage.setItem(presentacionVideoMesAño, array);
+                localStorage.setItem(presentacionVideoMesAño, inputPresentacionVideosValue);
             }
         }
     }
@@ -293,56 +211,71 @@ function guardarDatosLocalStorage() {
 let datos = localStorage.getItem('PresentacionVideos (11/2021)');
 
 
-extraerDatosLocalStorage()
-// Extraer datos del localStorage para ponerlo en la carpeta contenedora del registro del servicio para el mes
-function extraerDatosLocalStorage() {
-    extraerUnMes();
-    function extraerUnMes() {
-        let contenedorResultadoDelMes = document.querySelector(".container-containerResultadoMes");
+function listDeploy() {
+    let fileYears = document.querySelector(".list-fileYears");
+    let btnListDeploy = document.querySelector(".btn-list-deploy");
+    btnListDeploy.addEventListener('click', function () {
+        fileYears.classList.toggle('active');
+    });
+};
 
-        // Esto es para rellenar las carpetas correspondien al mes y para llenarla con contenido del servicio
-        rellenarCarpetas();
-        function rellenarCarpetas() {
-            let inputMesValue = inputMes.value;
-            if (inputMesValue == 'Enero') inputMesValue = 1;
-            if (inputMesValue == 'Febrero') inputMesValue = 2;
-            if (inputMesValue == 'Marzo') inputMesValue = 3;
-            if (inputMesValue == 'Abril') inputMesValue = 4;
-            if (inputMesValue == 'Mayo') inputMesValue = 5;
-            if (inputMesValue == 'Junio') inputMesValue = 6;
-            if (inputMesValue == 'Julio') inputMesValue = 7;
-            if (inputMesValue == 'Agosto') inputMesValue = 8;
-            if (inputMesValue == 'Septiembre') inputMesValue = 9;
-            if (inputMesValue == 'Octubre') inputMesValue = 10;
-            if (inputMesValue == 'Noviembre') inputMesValue = 11;
-            if (inputMesValue == 'Diciembre') inputMesValue = 12;
-
-            // Extraer los datos del INPUT MES en formato de numeros, correspondientes a su respectivo mes.
-
-            let datosLocalStorageHoras = localStorage.getItem(`Horas (${inputMesValue}/${2021})`);
-            let datosLocalStorageRevisitas = localStorage.getItem(`Revisitas (${inputMesValue}/${2021})`);
-            let datosLocalStorageComentarios = localStorage.getItem(`Comentarios (${inputMesValue}/${2021})`);
-            let datosLocalStoragePublicaciones = localStorage.getItem(`Publicaciones (${inputMesValue}/${2021})`);
-            let datosLocalStorageCursosBiblicos = localStorage.getItem(`CursosBiblicos (${inputMesValue}/${2021})`);
-            let datosLocalStoragePresentacionVideos = localStorage.getItem(`PresentacionVideos (${inputMesValue}/${2021})`);
-
-            let arrayHoras = datosLocalStorageHoras;
-            if (inputMes.value != '' && (arrayHoras === inputMes.value)) {
-
-                // if (inputMes.value ==)
-                contenedorResultadoDelMes.innerHTML += ``;
-                contenedorResultadoDelMes.innerHTML += `<div>
-                                                        <h3>${inputMes.value}</h3>
-                                                        <div>
-                                                        </div>
-                                                    </div>`;
-
-            }
-        }
+function selectionFileYears() {
+    let fileYears = document.querySelector(".list-fileYears").children;
+    for (let i = 0; i < fileYears.length; i++) {
+        fileYears[i].addEventListener('click', function () {
+            let fileYearsChildrens = fileYears[i].childNodes[0].nodeValue;
+            document.querySelector('.input-years-files').value = fileYearsChildrens;
+        });
     }
 }
+showFolders()
+function showFolders() {
+
+    // Extraer los datos del INPUT MES en formato de numeros, correspondientes a su respectivo mes.
+    let inputYearsFilesVALUE = document.querySelector(".input-years-files").value;
 
 
+    let datosLocalStorageHoras = localStorage.getItem(`Horas (${inputMes.value}/${2021})`);
+    let datosLocalStorageRevisitas = localStorage.getItem(`Revisitas (${inputMes.value}/${2021})`);
+    let datosLocalStorageComentarios = localStorage.getItem(`Comentarios (${inputMes.value}/${2021})`);
+    let datosLocalStoragePublicaciones = localStorage.getItem(`Publicaciones (${inputMes.value}/${2021})`);
+    let datosLocalStorageCursosBiblicos = localStorage.getItem(`CursosBiblicos (${inputMes.value}/${2021})`);
+    let datosLocalStoragePresentacionVideos = localStorage.getItem(`PresentacionVideos (${inputMes.value}/${2021})`);
+
+
+    var datosHora = '';
+
+    btnGuardar.addEventListener('click', function () {
+        // console.log(localStorage.getItem(`Horas (${'Enero'}/${2021})`))
+        if (localStorage.getItem(`Horas (${'Enero'}/${2021})`) != null) {
+            datosHora = `<div><h2>Horas:</h2><h1>20</h1></div>`;
+        }
+    });
+    console.log(datosHora)
+
+    // console.log(localStorage.getItem(`Horas (${inputMes.value}/${2021})`));
+
+
+
+
+    let contenedorResultadoDelMes = document.querySelector(".container-foldersMonths");
+
+    contenedorResultadoDelMes.innerHTML += ``;
+    contenedorResultadoDelMes.innerHTML += `<div>
+                                            <h3>Enero</h3>
+                                            <div>
+                                                ${datosHora}
+                                                <div>
+                                                    <h2>Horas:</h2>
+                                                    <h1>20</h1>
+                                                </div>
+                                            </div>
+                                        </div>`;
+
+
+
+
+}
 
 
 

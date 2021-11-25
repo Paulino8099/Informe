@@ -8,8 +8,7 @@
     <title>Informe</title>
 
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/normalize.css">
-    <link rel="stylesheet" href="CSS/StyleAlertPopPup.css">
+    <!-- <link rel="stylesheet" href="CSS/normalize.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
 
 </head>
@@ -96,11 +95,37 @@
                     </div>
                     <div class="container-botones">
                         <button class="btn-Historial">Historial</button>
-                            <button class="btn-guardar">Guardar</button>
+                        <button class="btn-guardar">Guardar</button>
                         <button class="btn-verMas">Ver Mas</button>
                     </div>
                 </div>
+                <!-- Contenedor para las carpetas de los meses del año para el servico en el campo -->
                 <div class="container-containerResultadoMes">
+                    <div class="container-selection-filesAño">
+                        <div>
+                            <h3>Año de servicio:</h3>
+                            <div class="content-seleccionAño">
+                                <input class="input-years-files" type="number">
+                                <span>
+                                    <svg class="btn-list-deploy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <ol class="list-fileYears">
+                                    <li>2021</li>
+                                    <li>2022</li>
+                                    <li>2023</li>
+                                    <li>2024</li>
+                                    <li>2025</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-foldersMonths">
+                    
+                    </div>
                 </div>
                 <!-- ===========================================================================================-->
                 <!-- ====================================Contenedor popup======================================= -->
@@ -122,7 +147,6 @@
     </div>
 
     <script src="JS/app.js"></script>
-    <script src="JS/popup.js"></script>
 </body>
 
 </html>
