@@ -242,7 +242,7 @@ body {
 					height: min-content;
 					padding: 10px 10px 0 10px;
 
-					display: none;
+					display: grid;
 					grid-column: 1/11;
 					grid-row: 2/3;
 					grid-template-columns: repeat(10, auto);
