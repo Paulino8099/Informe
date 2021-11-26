@@ -38,6 +38,8 @@ addEventListener('DOMContentLoaded', function () {
     listDeploy();
     // Función para guardar todos los datos en el localStorage
     btnSaveData();
+    // Función para guardar datos en el localStorage al hacer click cualquiera de los input para las horas de servicio. Hay que tener en cuenta que solo se van a guardar datos al presionar la tecla de enter 
+    saveDataKeypress();
     // Función para seleccionar el mes mediante algoritmo
     seleccionMes();
     // Guardar el año seleccionado en el localStorage para que siempre se quede guardado y cuando el usuario entre siempre va a aparecer puesto en el input de archivos de los años
@@ -47,6 +49,7 @@ addEventListener('DOMContentLoaded', function () {
     // Funcion para extraer archivos del localStorage solo si hay un año seleccionado
     showFolders();
 });
+
 
 
 // Esta función es para guardar el valor del mes en INPUT MES al hacer click en cualquiera de los meses que se encuentran en la lista 
@@ -75,7 +78,7 @@ document.querySelector(".content-btn-listaMes").addEventListener('click', () => 
 })
 
 // Función para alertar al usuario que debe de llenar algunos input correctamente
-function evaluarCampoAño() {
+function evaluarCamposVacios() {
     if (inputAño.value === '') {
         textAlertPopup.innerHTML = `¡El campo "año" está vacío! ${'<br>'} Debe de introducir un año.`;
         // Ventana Popup
@@ -86,6 +89,12 @@ function evaluarCampoAño() {
         ventanaPopup.classList.add("active");
     } else if (inputMes.value === '') {
         textAlertPopup.innerHTML = `¡Por favor, seleccione un mes!`;
+        // Ventana Popup
+        ventanaPopup.classList.add("active");
+    }
+    // Función para detectar si todos los campos de entradas para las horas de servicio están vacíos y presentar una alerta diciendo que los campos están vacíos y que el usuario debe de proporcionar algunos datos.
+    else if (inputHoras.value === '' && inputRevisitas.value === '' && inputComentarios.value === '' && inputPublicaciones.value === '' && inputCursosBiblicos.value === '' && inputPresentacionVideos.value === '') {
+        textAlertPopup.innerHTML = `¡Nada que guardar! <br> Debe de introducir datos.`;
         // Ventana Popup
         ventanaPopup.classList.add("active");
     }
@@ -101,7 +110,7 @@ function btnSaveData() {
         inputPublicaciones.value = '';
         inputCursosBiblicos.value = '';
         inputPresentacionVideos.value = '';
-        evaluarCampoAño();
+        evaluarCamposVacios();
     });
 }
 
@@ -200,6 +209,7 @@ function guardarDatosLocalStorage() {
     }
 }
 
+
 // Función para desplegar lista al dar click en el boton de la flechita
 function listDeploy() {
     let fileYears = document.querySelector(".list-fileYears");
@@ -240,6 +250,27 @@ function saveFullYearsLocalStorage() {
         });
     }
 
+}
+
+// Función para escuchar un click en todos los input y al escuchar que se presiona la tecla enter se van a guardar los datos
+function saveDataKeypress() {
+    const allInput = document.querySelector(".container-servicioCampo").children;
+    for (i = 0; i < allInput.length; i++) {
+        allInput[i].addEventListener("click", function (e) {
+            addEventListener('keyup', function (e) {
+                if (e.keyCode === 13) {
+                    guardarDatosLocalStorage();
+                    inputHoras.value = '';
+                    inputRevisitas.value = '';
+                    inputComentarios.value = '';
+                    inputPublicaciones.value = '';
+                    inputCursosBiblicos.value = '';
+                    inputPresentacionVideos.value = '';
+                    evaluarCamposVacios();
+                }
+            })
+        })
+    }
 }
 
 
@@ -322,8 +353,32 @@ function showFolders() {
         }
     }
     // console.log(localStorage.getItem('Comentarios (Diciembre/2021)'));
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
