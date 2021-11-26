@@ -339,12 +339,12 @@ body {
 				// ==================================================================================================
 				// =======================================Carpetas de los informes===================================
 				// ==================================================================================================
-				// Contenedor para guardar en carpetas las horas realizadas en el servicio
+				// Contenedor para guardar datos en carpetas
 				.container-containerResultadoMes {
 					overflow: hidden;
 					justify-self: center;
 					width: 100%;
-					height: 230px;
+					height: 250px;
 					margin: 0;
 					padding: 0;
 					background: #339966;
@@ -385,16 +385,16 @@ body {
 							.content-seleccionAño {
 								margin-left: 10px;
 								width: 100px;
-								overflow: hidden;
 								padding: 0 5px;
 								border-radius: 5px;
 								place-items: center;
 								background-color: #fff;
 								justify-content: space-between;
+								position: relative;
 
 								display: flex;
 								input {
-									text-decoration: underline 2px #303030;
+									text-decoration: underline 1px #303030;
 									pointer-events: none;
 									width: 60%;
 									border: none;
@@ -429,7 +429,7 @@ body {
 									border-bottom-right-radius: 5px;
 									background: #fff;
 									position: absolute;
-									margin-top: 145px;
+									margin-top: 160px;
 									margin-left: 55px;
 									padding: 5px;
 									opacity: 0;
@@ -455,12 +455,12 @@ body {
 						}
 					}
 
-					// CONTENEDOR DE LAS CARPETAS DE LOS RESULTADOS DEL MES EN EN CAMPO
+					// CARPETAS DE LOS RESULTADOS DEL MES EN EN CAMPO
 					.container-foldersMonths {
 						justify-self: center;
 						padding: 0 0 15px 0;
 						width: 100%;
-						height: 151px;
+						height: 200px;
 						overflow-y: hidden;
 						overflow-x: auto;
 
@@ -478,7 +478,7 @@ body {
 						div {
 							margin: 0 35px;
 							width: 200px;
-							height: 130px;
+							height: 155px;
 
 							display: grid;
 							// Title Month
@@ -516,7 +516,7 @@ body {
 										border-radius: 25px;
 										background: #79d2a6;
 										text-align: center;
-										font-size: 1rem;
+										font-size: .9rem;
 										font-weight: 900;
 										color: #fff;
 									}
@@ -524,7 +524,7 @@ body {
 										padding: 0 5px;
 										border-radius: 25px;
 										background: #79d2a6;
-										font-size: 1rem;
+										font-size: .9rem;
 										font-weight: 900;
 										color: #fff;
 									}

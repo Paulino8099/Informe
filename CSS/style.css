@@ -317,7 +317,8 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   height: -moz-min-content;
   height: min-content;
   padding: 10px 10px 0 10px;
-  display: none;
+  display: -ms-grid;
+  display: grid;
   -ms-grid-column: 1;
   -ms-grid-column-span: 10;
   grid-column: 1/11;
@@ -463,7 +464,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   -ms-grid-column-align: center;
       justify-self: center;
   width: 100%;
-  height: 230px;
+  height: 250px;
   margin: 0;
   padding: 0;
   background: #339966;
@@ -525,7 +526,6 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño {
   margin-left: 10px;
   width: 100px;
-  overflow: hidden;
   padding: 0 5px;
   border-radius: 5px;
   place-items: center;
@@ -533,14 +533,15 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño input {
-  -webkit-text-decoration: underline 2px #303030;
-          text-decoration: underline 2px #303030;
+  -webkit-text-decoration: underline 1px #303030;
+          text-decoration: underline 1px #303030;
   pointer-events: none;
   width: 60%;
   border: none;
@@ -592,7 +593,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   border-bottom-right-radius: 5px;
   background: #fff;
   position: absolute;
-  margin-top: 145px;
+  margin-top: 160px;
   margin-left: 55px;
   padding: 5px;
   opacity: 0;
@@ -623,7 +624,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   justify-self: center;
   padding: 0 0 15px 0;
   width: 100%;
-  height: 151px;
+  height: 200px;
   overflow-y: hidden;
   overflow-x: auto;
   display: -webkit-box;
@@ -649,7 +650,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths div {
   margin: 0 35px;
   width: 200px;
-  height: 130px;
+  height: 155px;
   display: -ms-grid;
   display: grid;
 }
@@ -699,7 +700,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   border-radius: 25px;
   background: #79d2a6;
   text-align: center;
-  font-size: 1rem;
+  font-size: .9rem;
   font-weight: 900;
   color: #fff;
 }
@@ -708,7 +709,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   padding: 0 5px;
   border-radius: 25px;
   background: #79d2a6;
-  font-size: 1rem;
+  font-size: .9rem;
   font-weight: 900;
   color: #fff;
 }
