@@ -307,7 +307,7 @@ function showFolders() {
                 }
 
                 let contenedorResultadoDelMes = document.querySelector(".container-foldersMonths");
-                contenedorResultadoDelMes.innerHTML = `<div>
+                contenedorResultadoDelMes.innerHTML += `<div>
                                                             <h3>Diciembre</h3>
                                                             <div>
                                                                 ${datosHora}
