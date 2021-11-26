@@ -422,6 +422,8 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   height: 35px;
   -webkit-transition: .5s;
   transition: .5s;
+  opacity: 0;
+  pointer-events: none;
 }
 
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial:active {
@@ -431,7 +433,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar {
   width: 100%;
   height: 100%;
-  background: #004de6;
+  background: #669999;
   border-radius: 5px;
   width: 70px;
   height: 50px;
@@ -453,6 +455,8 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   height: 35px;
   -webkit-transition: .5s;
   transition: .5s;
+  opacity: 0;
+  pointer-events: none;
 }
 
 body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-verMas:active {
