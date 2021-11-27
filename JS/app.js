@@ -62,10 +62,10 @@ addEventListener('DOMContentLoaded', function () {
     saveFullYearsLocalStorage()
     // Función para seleccionar un año para sacar los datos del localStorage correspodiente al año selecionado
     selectionFileYears();
-    // Funcion para extraer archivos del localStorage solo si hay un año seleccionado
-    showFolders();
     // Función para guardar todos los datos en el localStorage
     btnSaveData();
+    // Funcion para extraer archivos del localStorage solo si hay un año seleccionado
+    showFolders();
 });
 
 
@@ -321,53 +321,54 @@ function showFolders() {
         });
     }
     // Abrir carpetas de todos los meses del año 2021
-    filesYears2021();
+    // filesYears2021();
 
     function filesYears2021() {
+        // Comparar si hay carpetas con las mismas caracteristicas de mes y año en el contenedor y en la base de datos de localStorage
         let inputYearsFile = document.querySelector(".input-years-files");
         if (inputYearsFile.value == '2021') {
-            // Si en el localStoragese encuentra esa clave entonces se va a crear una carpeta de enero del 2021 y se va a mostrar al usuario
+            // Si en el localStorage se encuentra esa clave entonces se va a crear una carpeta de enero del 2021 y se va a mostrar al usuario
             if (localStorage.getItem('Horas (Diciembre/2021)') != null) {
 
                 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ HORAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
                 if (localStorage.getItem('Horas (Diciembre/2021)') != null) {
                     var datosHora = `<div><h2>Horas:</h2><h1>
-                                                            ${datosLocalStorageHoras}
-                                                        </h1></div>`;
+                                                                        ${datosLocalStorageHoras}
+                                                                    </h1></div>`;
                 }
                 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ REVISITAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
                 if (localStorage.getItem('Revisitas (Diciembre/2021)') != null) {
                     var datosRevisitas = `<div><h2>Revisitas:</h2><h1>
-                                                                    ${datosLocalStorageRevisitas}
-                                                                </h1></div>`;
+                                                                                ${datosLocalStorageRevisitas}
+                                                                            </h1></div>`;
                 }
                 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ COMENTARIOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
                 if (localStorage.getItem('Comentarios (Diciembre/2021)') != null) {
                     var datosComentarios = `<div><h2>Comentarios:</h2><h1>
-                                                                        ${datosLocalStorageComentarios}
-                                                                    </h1></div>`;
+                                                                                    ${datosLocalStorageComentarios}
+                                                                                </h1></div>`;
                 }
                 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PUBLICACIONES ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
                 if (localStorage.getItem('Publicaciones (Diciembre/2021)') != null) {
                     var datosPublicaciones = `<div><h2>Publicaciones:</h2><h1>
-                                                                            ${datosLocalStoragePublicaciones}
-                                                                        </h1></div>`;
+                                                                                        ${datosLocalStoragePublicaciones}
+                                                                                    </h1></div>`;
                 }
                 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ CURSOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
                 if (localStorage.getItem('CursosBiblicos (Diciembre/2021)') != null) {
                     var datosCursosBiblicos = `<div><h2>Cursos Bíblicos:</h2><h1>
-                                                                                ${datosLocalStorageCursosBiblicos}
-                                                                            </h1></div>`;
+                                                                                            ${datosLocalStorageCursosBiblicos}
+                                                                                        </h1></div>`;
                 }
                 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PRESENTACION ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
                 if (localStorage.getItem('PresentacionVideos (Diciembre/2021)') != null) {
                     var datosPresentacionVideos = `<div><h2>Presentación Vídeos:</h2><h1>
-                                                                                ${datosLocalStoragePresentacionVideos}
-                                                                            </h1></div>`;
+                                                                                            ${datosLocalStoragePresentacionVideos}
+                                                                                        </h1></div>`;
                 }
 
                 let contenedorResultadoDelMes = document.querySelector(".container-foldersMonths");
-                contenedorResultadoDelMes.innerHTML += `<div>
+                contenedorResultadoDelMes.innerHTML = `<div>
                                                             <h3>Diciembre</h3>
                                                             <div>
                                                                 ${datosHora}
@@ -378,10 +379,10 @@ function showFolders() {
                                                                 ${datosPresentacionVideos}
                                                             </div>
                                                         </div>`;
-            }
+}
         }
-    }
-    // console.log(localStorage.getItem('Comentarios (Diciembre/2021)'));
+    };
+    // setInterval(filesYears2021, 10)
 }
 
 saveDataMesLocalStorage();
@@ -408,7 +409,7 @@ function getDataMesLocalStorage() {
 
     document.querySelector('.input-mes-misHoras').value = datosLocalStorageMonth;
     let listMonthMisHoras = document.querySelector('.list-month-files').children;
-    for (let i = 0; i < listMonthMisHoras.length; i++){
+    for (let i = 0; i < listMonthMisHoras.length; i++) {
         listMonthMisHoras[i].addEventListener("click", function () {
             let datosLocalStorageMonth = localStorage.getItem('selectionMonth');
             document.querySelector('.input-mes-misHoras').value = datosLocalStorageMonth;
@@ -416,6 +417,8 @@ function getDataMesLocalStorage() {
 
     }
 }
+
+
 
 
 

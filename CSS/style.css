@@ -25,8 +25,7 @@ body .container-hojaInforme {
   height: 90%;
   -webkit-transition: 0.8s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: 0.8s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  display: -ms-grid;
-  display: grid;
+  display: none;
   -ms-grid-column: 1;
   -ms-grid-column-span: 8;
   grid-column: 1/9;
@@ -627,12 +626,6 @@ body .container-files {
   place-self: center;
   width: 90%;
   height: 90%;
-  -webkit-filter: blur(100px);
-          filter: blur(100px);
-  pointer-events: none;
-  opacity: 0;
-  -webkit-transition: 0.5s cubic-bezier(1, 0, 0, 1);
-  transition: 0.5s cubic-bezier(1, 0, 0, 1);
   display: -ms-grid;
   display: grid;
   -ms-grid-column: 1;
@@ -1014,9 +1007,9 @@ body .container-files .content-files .container-selection .content-seleccionAño
 
 body .container-files .content-files .container-foldersMonths {
   justify-self: center;
-  padding: 0 0 15px 0;
+  padding: 0;
   width: 100%;
-  height: 200px;
+  height: 250px;
   overflow-y: hidden;
   overflow-x: auto;
   display: -webkit-box;
@@ -1040,9 +1033,9 @@ body .container-files .content-files .container-foldersMonths::-webkit-scrollbar
 }
 
 body .container-files .content-files .container-foldersMonths div {
-  margin: 0 35px;
-  width: 200px;
-  height: 155px;
+  margin: 10px 35px;
+  width: 250px;
+  height: 200px;
   display: -ms-grid;
   display: grid;
 }
