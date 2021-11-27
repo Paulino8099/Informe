@@ -1,90 +1,132 @@
 @charset "UTF-8";
 * {
-  font-family: 'nunito', sans-serif;
+  font-size: 15px;
+  font-family: cursive;
 }
 
 body {
-  background: LightBlue;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #94b8b8;
 }
 
 body .caja-container-modal-hojaInforme {
   width: 100%;
   height: 100vh;
+  place-self: center;
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (auto)[8];
+      grid-template-columns: repeat(8, auto);
+  -ms-grid-rows: (auto)[8];
+      grid-template-rows: repeat(8, auto);
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme {
-  -ms-grid-column-align: center;
-      justify-self: center;
-  margin: 1% 0 50px 0;
+body .caja-container-modal-hojaInforme .container-hojaInforme {
+  place-self: center;
   width: 90%;
-  height: 80%;
+  height: 90%;
+  -webkit-transition: 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (auto)[10];
-      grid-template-columns: repeat(10, auto);
-  grid-auto-rows: -webkit-min-content;
-  grid-auto-rows: min-content;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 8;
+  grid-row: 1/9;
+  -ms-grid-columns: (auto)[8];
+      grid-template-columns: repeat(8, auto);
+  -ms-grid-rows: 1;
+      grid-template-rows: 1;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-title-modal-hojaInforme {
-  -webkit-box-shadow: 0 -5px 10px #00000079;
-          box-shadow: 0 -5px 10px #00000079;
-  padding: 0 10px;
-  margin-bottom: 0;
+body .caja-container-modal-hojaInforme .container-hojaInforme.off {
+  -webkit-filter: blur(100px);
+          filter: blur(100px);
+  width: 0%;
+  height: 0%;
+  -webkit-transition: .5s;
+  transition: .5s;
+  pointer-events: none;
+}
+
+body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme {
+  -webkit-box-shadow: 0 -10px 10px #00000030;
+          box-shadow: 0 -10px 10px #00000030;
+  padding: 0 5px;
   background: #79d279;
   justify-self: center;
   place-items: center;
   text-align: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 200px;
-  height: 50px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   border-top: 3px solid #aaa;
   border-left: 3px solid #aaa;
   border-right: 3px solid #aaa;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 10;
-  grid-column: 1/11;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-title-modal-hojaInforme h3 {
+body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme svg {
+  margin-right: -15px;
+  padding: 5px;
+  background: #669999;
+  border-radius: 50px;
+  fill: #fff;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+}
+
+body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme h3 {
+  border-radius: 25px;
+  padding-left: 20px;
+  padding-right: 5px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background: #669999;
   font-size: 1.3rem;
   color: #fff;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-title-modal-hojaInforme svg {
-  fill: #fff;
-  width: 40px;
-  height: 40px;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme {
   margin-top: 0;
   -webkit-box-shadow: 0 0 10px #00000079;
           box-shadow: 0 0 10px #00000079;
   border: 3px solid #aaa;
   width: 100%;
-  height: 500px;
+  height: 100%;
   background: #79d279;
   border-radius: 10px;
-  overflow: auto;
+  overflow: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 10;
-  grid-column: 1/11;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
@@ -94,19 +136,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
       grid-template-rows: repeat(10, auto);
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme::-webkit-scrollbar {
-  width: 10px;
-  background: #aaaaaa;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme::-webkit-scrollbar-thumb {
-  justify-self: center;
-  width: 8px;
-  border-radius: 10px;
-  background-color: lightgray;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -125,7 +155,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   grid-row: 1/2;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes {
   margin: 4px;
   width: 130%;
   position: relative;
@@ -133,7 +163,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -143,14 +173,14 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   display: flex;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div h3 {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div h3 {
   font-weight: 800;
   color: #fff;
   font-size: 1.2rem;
   margin: 0 3px 0 0;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span {
   border-radius: 3px;
   background: #fff;
   width: 100%;
@@ -165,7 +195,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   display: flex;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span input {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span input {
   color: #404040;
   font-weight: 800;
   pointer-events: none;
@@ -177,19 +207,19 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   border: none;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span {
   width: 15px;
   height: 15px;
   border: 1px solid gray;
   margin: 0 2px;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span:active {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span:active {
   fill: #606060;
   background: gainsboro;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span svg {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span svg {
   width: 100%;
   height: 100%;
   fill: #404040;
@@ -197,12 +227,12 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   transition: .3s;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span svg.rotate {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span svg.rotate {
   -webkit-transform: rotateZ(180deg);
           transform: rotateZ(180deg);
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol {
   position: absolute;
   list-style: none;
   padding: 10px;
@@ -224,7 +254,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol::before {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol::before {
   border-bottom-right-radius: 50px;
   content: "";
   background: #fff;
@@ -240,37 +270,37 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol.active {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol.active {
   opacity: 1;
   pointer-events: visible;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li {
   font-weight: 900;
   cursor: pointer;
   border-top: 1px solid #909090;
   color: #303030;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li:active {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li:active {
   background: #505050;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li::-moz-selection {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li::-moz-selection {
   background: none;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li::selection {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li::selection {
   background: none;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año {
   width: 100%;
   display: -ms-grid;
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -281,12 +311,12 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   width: 100%;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div h3 {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div h3 {
   color: #fff;
   margin-right: 3px;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div input {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div input {
   color: #404040;
   font-weight: 800;
   font-size: 1rem;
@@ -300,12 +330,12 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   margin-right: 5px;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div input::-webkit-inner-spin-button,
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-mesAño .container-año div input ::-webkit-outer-spin-button {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div input::-webkit-inner-spin-button,
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div input ::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo {
   margin: 10px;
   place-self: center;
   border-radius: 25px;
@@ -331,7 +361,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
       grid-template-rows: repeat(3, auto);
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div {
   margin-bottom: 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -352,14 +382,14 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   grid-column: 1/11;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div h3 {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div h3 {
   font-size: 1rem;
   margin-left: 5px;
   font-weight: 900;
   color: #fff;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input {
   margin-left: 5px;
   background: #79d279;
   border: none;
@@ -370,28 +400,28 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   height: 25px;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input::-webkit-inner-spin-button,
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input ::-webkit-outer-spin-button {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input::-webkit-inner-spin-button,
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input ::-webkit-outer-spin-button {
   -webkit-appearance: initial;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input::-webkit-input-placeholder {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input::-webkit-input-placeholder {
   color: rgba(245, 245, 245, 0.746);
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input:-ms-input-placeholder {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input:-ms-input-placeholder {
   color: rgba(245, 245, 245, 0.746);
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input::-ms-input-placeholder {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input::-ms-input-placeholder {
   color: rgba(245, 245, 245, 0.746);
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo div input::placeholder {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input::placeholder {
   color: rgba(245, 245, 245, 0.746);
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones {
   width: 100%;
   margin-bottom: 5px;
   -webkit-box-pack: justify;
@@ -408,7 +438,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   grid-row: 10/11;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones button {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones button {
   border-radius: 5px;
   border: none;
   outline: none;
@@ -416,7 +446,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   color: #fff;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial {
   background: #3399ff;
   width: 70px;
   height: 35px;
@@ -426,11 +456,11 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   pointer-events: none;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial:active {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial:active {
   background: #6699ff;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar {
   width: 100%;
   height: 100%;
   background: #669999;
@@ -445,280 +475,23 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   transition: .5s;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar:active {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar:active {
   background: #6699ff;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-verMas {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-misHoras {
   background: #3399ff;
-  width: 70px;
+  width: 90px;
   height: 35px;
   -webkit-transition: .5s;
   transition: .5s;
-  opacity: 0;
-  pointer-events: none;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-verMas:active {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-misHoras:active {
   background: #6699ff;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes {
-  overflow: hidden;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  width: 100%;
-  height: 250px;
-  margin: 0;
-  padding: 0;
-  background: #339966;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 10;
-  grid-column: 1/11;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  grid-row: 3/4;
-  -ms-grid-columns: (auto)[8];
-      grid-template-columns: repeat(8, auto);
-  -ms-grid-rows: (auto)[8];
-      grid-template-rows: repeat(8, auto);
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes::-webkit-scrollbar {
-  height: 5px;
-  border-radius: 10px;
-  background: #aaaaaa;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes::-webkit-scrollbar-thumb {
-  justify-self: center;
-  background-color: lightgray;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño {
-  background: #339966;
-  text-align: center;
-  height: 80%;
-  margin: 0 !important;
-  border-bottom: 2px solid darkgray;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 8;
-  grid-column: 1/9;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-self: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div h3 {
-  color: #fff;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño {
-  margin-left: 10px;
-  width: 100px;
-  padding: 0 5px;
-  border-radius: 5px;
-  place-items: center;
-  background-color: #fff;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño input {
-  -webkit-text-decoration: underline 1px #303030;
-          text-decoration: underline 1px #303030;
-  pointer-events: none;
-  width: 60%;
-  border: none;
-  outline: none;
-  padding: 5px;
-  color: #303030;
-  font-weight: 900;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño input::-webkit-input-placeholder {
-  color: #303030;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño input:-ms-input-placeholder {
-  color: #303030;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño input::-ms-input-placeholder {
-  color: #303030;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño input::placeholder {
-  color: #303030;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño span {
-  border-radius: 3px;
-  border: 1px solid #303030;
-  width: 15px;
-  display: -ms-grid;
-  display: grid;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño span:active {
-  background: #9a9a9a;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño span svg {
-  place-self: center;
-  fill: #303030;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño ol {
-  list-style: none;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  width: 40px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background: #fff;
-  position: absolute;
-  margin-top: 160px;
-  margin-left: 55px;
-  padding: 5px;
-  opacity: 0;
-  pointer-events: none;
-  display: -ms-grid;
-  display: grid;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño ol.active {
-  opacity: 1;
-  pointer-events: visible;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño ol li {
-  font-weight: 900;
-  cursor: pointer;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  color: #303030;
-  border-top: 1px solid #303030;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-selection-filesAño div .content-seleccionAño ol li:active {
-  background: #9a9a9a;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths {
-  justify-self: center;
-  padding: 0 0 15px 0;
-  width: 100%;
-  height: 200px;
-  overflow-y: hidden;
-  overflow-x: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 8;
-  grid-column: 1/9;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 7;
-  grid-row: 2/9;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths::-webkit-scrollbar {
-  background: #9a9a9a;
-  height: 4px;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths::-webkit-scrollbar-thumb {
-  background: rgba(250, 250, 250, 0.863);
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths div {
-  margin: 0 35px;
-  width: 200px;
-  height: 155px;
-  display: -ms-grid;
-  display: grid;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths div h3 {
-  color: #9a9a9a;
-  margin: 0 0 0 10%;
-  font-size: 1rem;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  padding: 0 5px;
-  background: #fff0b3;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths div div {
-  margin: 0;
-  border-radius: 5px;
-  background: #fff0b3;
-  display: -ms-grid;
-  display: grid;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths div div div {
-  width: 90%;
-  height: 5px;
-  margin: 0;
-  -ms-flex-item-align: center;
-      align-self: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-self: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background: #79d2a6;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths div div div h2 {
-  padding: 0 5px;
-  border-radius: 25px;
-  background: #79d2a6;
-  text-align: center;
-  font-size: .9rem;
-  font-weight: 900;
-  color: #fff;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .container-containerResultadoMes .container-foldersMonths div div div h1 {
-  padding: 0 5px;
-  border-radius: 25px;
-  background: #79d2a6;
-  font-size: .9rem;
-  font-weight: 900;
-  color: #fff;
-}
-
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .contenedor-popup {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup {
   -ms-grid-column-align: center;
       justify-self: center;
   -webkit-backdrop-filter: blur(5px);
@@ -742,18 +515,18 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   grid-row: 1/11;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .contenedor-popup.active {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup.active {
   width: 100%;
   height: 100%;
   opacity: 1;
   pointer-events: visible;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .contenedor-popup.active .content-popup {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup.active .content-popup {
   margin-top: 150px;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .contenedor-popup div {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div {
   font-size: 1rem;
   border-radius: 10px;
   -ms-grid-column-align: center;
@@ -771,7 +544,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .contenedor-popup div svg {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div svg {
   -ms-grid-column-align: center;
       justify-self: center;
   width: 40px;
@@ -814,7 +587,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   }
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .contenedor-popup div h3 {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div h3 {
   color: #ff0000;
   text-align: center;
   -webkit-animation: entradaTitulo ease .5s forwards;
@@ -840,7 +613,7 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   }
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .contenedor-popup div button {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div button {
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
@@ -851,7 +624,485 @@ body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-h
   cursor: pointer;
 }
 
-body .caja-container-modal-hojaInforme .container-modal-hojaInforme .container-hojaInforme .contenedor-popup div button:active {
+body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div button:active {
   background: #0073e699;
+}
+
+body .caja-container-modal-hojaInforme .container-files {
+  place-self: center;
+  width: 0%;
+  height: 0%;
+  -webkit-filter: blur(100px);
+          filter: blur(100px);
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: 0.5s cubic-bezier(1, 0, 0, 1);
+  transition: 0.5s cubic-bezier(1, 0, 0, 1);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-columns: (auto)[8];
+      grid-template-columns: repeat(8, auto);
+  -ms-grid-rows: (auto)[8];
+      grid-template-rows: repeat(8, auto);
+}
+
+body .caja-container-modal-hojaInforme .container-files.on {
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  width: 90%;
+  height: 90%;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  -webkit-transition: 1s;
+  transition: 1s;
+  pointer-events: visible;
+}
+
+body .caja-container-modal-hojaInforme .container-files .title-files {
+  justify-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 5px 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 2px solid darkgray;
+  border-left: 2px solid darkgray;
+  border-right: 2px solid darkgray;
+  background: #339966;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+body .caja-container-modal-hojaInforme .container-files .title-files h3 {
+  margin: 0;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: #3399ff;
+  border-radius: 25px;
+  padding: 0 25px 0 10px;
+}
+
+body .caja-container-modal-hojaInforme .container-files .title-files svg {
+  background: #3399ff;
+  padding: 5px;
+  border-radius: 50px;
+  margin-left: -15px;
+  fill: #fff;
+  width: 40px;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files {
+  overflow: hidden;
+  border-radius: 15px;
+  border: 2px solid darkgray;
+  width: 100%;
+  height: 100%;
+  background: #339966;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 7;
+  grid-row: 2/9;
+  -ms-grid-columns: (auto)[8];
+      grid-template-columns: repeat(8, auto);
+  -ms-grid-rows: (auto)[8];
+      grid-template-rows: repeat(8, auto);
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  justify-items: center;
+  width: 90%;
+  padding: 0 0 10px 0;
+  border-bottom: 2px solid darkgray;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-columns: (auto)[8];
+      grid-template-columns: repeat(8, auto);
+  -ms-grid-rows: (auto)[8];
+      grid-template-rows: repeat(8, auto);
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection h3 {
+  color: #fff;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .btn-salir-misHoras {
+  fill: #fff;
+  width: 25px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-right: -16px;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -webkit-transform: rotateZ(130deg);
+          transform: rotateZ(130deg);
+  cursor: pointer;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .btn-salir-misHoras:active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: 30px;
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 3px 10px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-column: 1/6;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 7;
+  grid-row: 2/9;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes.active {
+  border-bottom-right-radius: 0;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100px;
+  border: none;
+  outline: none;
+  color: #303030;
+  font-weight: 900;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input::-webkit-input-placeholder {
+  color: #909090;
+  font-size: 1rem;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input:-ms-input-placeholder {
+  color: #909090;
+  font-size: 1rem;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input::-ms-input-placeholder {
+  color: #909090;
+  font-size: 1rem;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input::placeholder {
+  color: #909090;
+  font-size: 1rem;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes span {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  cursor: pointer;
+  padding: 0;
+  width: 15px;
+  height: 20px;
+  border: 1px solid #303030;
+  border-radius: 3px;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes span svg {
+  fill: #303030;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes span:active {
+  background: #79d2a6;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes ol {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  list-style: none;
+  position: absolute;
+  background: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 5px;
+  margin: 28px 0 0 38px;
+  opacity: 0;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes ol.active {
+  opacity: 1;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes ol li {
+  color: #303030;
+  font-weight: 900;
+  cursor: pointer;
+  border-top: 1px solid #303030;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes ol li:active {
+  background: #79d2a6;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50px;
+  height: 30px;
+  padding: 3px 10px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 3;
+  grid-column: 6/9;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 7;
+  grid-row: 2/9;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño.active {
+  border-bottom-right-radius: 0;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input {
+  pointer-events: none;
+  width: 75px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  color: #303030;
+  font-weight: 900;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input::-webkit-input-placeholder {
+  color: #909090;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input:-ms-input-placeholder {
+  color: #909090;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input::-ms-input-placeholder {
+  color: #909090;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input::placeholder {
+  color: #909090;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño span {
+  cursor: pointer;
+  padding: 0;
+  width: 15px;
+  height: 20px;
+  border: 1px solid #303030;
+  border-radius: 3px;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño span svg {
+  fill: #303030;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño span:active {
+  background: #79d2a6;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño ol {
+  list-style: none;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 40px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #fff;
+  position: absolute;
+  margin-top: 165px;
+  margin-left: 62px;
+  padding: 5px;
+  opacity: 0;
+  pointer-events: none;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño ol.active {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño ol li {
+  font-weight: 900;
+  cursor: pointer;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  color: #303030;
+  border-top: 1px solid #303030;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño ol li:active {
+  background: #9a9a9a;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths {
+  justify-self: center;
+  padding: 0 0 15px 0;
+  width: 100%;
+  height: 200px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1/9;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 7;
+  grid-row: 2/9;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths::-webkit-scrollbar {
+  background: #9a9a9a;
+  height: 4px;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths::-webkit-scrollbar-thumb {
+  background: rgba(250, 250, 250, 0.863);
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div {
+  margin: 0 35px;
+  width: 200px;
+  height: 155px;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div h3 {
+  color: #9a9a9a;
+  margin: 0 0 0 10%;
+  font-size: 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0 5px;
+  background: #fff0b3;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div div {
+  margin: 0;
+  border-radius: 5px;
+  background: #fff0b3;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div div div {
+  width: 90%;
+  height: 5px;
+  margin: 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-self: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #3399ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div div div h2 {
+  padding: 0 5px;
+  border-radius: 25px;
+  background: #3399ff;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div div div h1 {
+  padding: 0 5px;
+  border-radius: 25px;
+  background: #3399ff;
+  font-size: .9rem;
+  font-weight: 900;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
