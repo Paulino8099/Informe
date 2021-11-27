@@ -29,7 +29,7 @@ body {
 		height: 90%;
 		transition: .8s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
-		display: none;
+		display: grid;
 		grid-column: 1/9;
 		grid-row: 1/9;
 		grid-template-columns: repeat(8, auto);
@@ -461,10 +461,10 @@ body {
 		place-self: center;
 		width: 90%;
 		height: 90%;
-		// filter: blur(100px);
-		// pointer-events: none;
-		// opacity: 0;
-		// transition: .5s cubic-bezier(1, 0, 0, 1);
+		filter: blur(100px);
+		pointer-events: none;
+		opacity: 0;
+		transition: .5s cubic-bezier(1, 0, 0, 1);
 
 		display: grid;
 		grid-column: 1/9;

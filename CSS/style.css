@@ -25,7 +25,8 @@ body .container-hojaInforme {
   height: 90%;
   -webkit-transition: 0.8s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: 0.8s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  display: none;
+  display: -ms-grid;
+  display: grid;
   -ms-grid-column: 1;
   -ms-grid-column-span: 8;
   grid-column: 1/9;
@@ -626,6 +627,12 @@ body .container-files {
   place-self: center;
   width: 90%;
   height: 90%;
+  -webkit-filter: blur(100px);
+          filter: blur(100px);
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: 0.5s cubic-bezier(1, 0, 0, 1);
+  transition: 0.5s cubic-bezier(1, 0, 0, 1);
   display: -ms-grid;
   display: grid;
   -ms-grid-column: 1;
