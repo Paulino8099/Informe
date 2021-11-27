@@ -1,20 +1,16 @@
 @charset "UTF-8";
 * {
   font-size: 15px;
-  font-family: cursive;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background: #94b8b8;
-}
-
-body .caja-container-modal-hojaInforme {
   width: 100%;
-  height: 100vh;
-  place-self: center;
+  height: 100%;
+  place-items: center;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (auto)[8];
@@ -23,12 +19,12 @@ body .caja-container-modal-hojaInforme {
       grid-template-rows: repeat(8, auto);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme {
+body .container-hojaInforme {
   place-self: center;
   width: 90%;
   height: 90%;
-  -webkit-transition: 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-transition: 0.8s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: 0.8s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
   display: -ms-grid;
   display: grid;
   -ms-grid-column: 1;
@@ -43,17 +39,35 @@ body .caja-container-modal-hojaInforme .container-hojaInforme {
       grid-template-rows: 1;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme.off {
+body .container-hojaInforme.off {
   -webkit-filter: blur(100px);
           filter: blur(100px);
+  place-items: center;
   width: 0%;
   height: 0%;
   -webkit-transition: .5s;
   transition: .5s;
   pointer-events: none;
+  -webkit-transform: translateX(-75px);
+          transform: translateX(-75px);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme {
+body .container-hojaInforme.off .title-hojaInforme {
+  -webkit-transition: .5s;
+  transition: .5s;
+  width: 0%;
+  height: 0%;
+}
+
+body .container-hojaInforme.off .content-hojaInforme {
+  -webkit-transition: .5s;
+  transition: .5s;
+  place-self: center;
+  width: 30%;
+  height: 30%;
+}
+
+body .container-hojaInforme .title-hojaInforme {
   -webkit-box-shadow: 0 -10px 10px #00000030;
           box-shadow: 0 -10px 10px #00000030;
   padding: 0 5px;
@@ -86,7 +100,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme
   grid-row: 1/2;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme svg {
+body .container-hojaInforme .title-hojaInforme svg {
   margin-right: -15px;
   padding: 5px;
   background: #669999;
@@ -97,7 +111,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme
   z-index: 10;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme h3 {
+body .container-hojaInforme .title-hojaInforme h3 {
   border-radius: 25px;
   padding-left: 20px;
   padding-right: 5px;
@@ -112,13 +126,15 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .title-hojaInforme
   color: #fff;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme {
+body .container-hojaInforme .content-hojaInforme {
   margin-top: 0;
   -webkit-box-shadow: 0 0 10px #00000079;
           box-shadow: 0 0 10px #00000079;
   border: 3px solid #aaa;
   width: 100%;
-  height: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   background: #79d279;
   border-radius: 10px;
   overflow: hidden;
@@ -136,7 +152,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
       grid-template-rows: repeat(10, auto);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño {
+body .container-hojaInforme .content-hojaInforme .container-mesAño {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -155,7 +171,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   grid-row: 1/2;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes {
   margin: 4px;
   width: 130%;
   position: relative;
@@ -163,7 +179,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -173,14 +189,14 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   display: flex;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div h3 {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div h3 {
   font-weight: 800;
   color: #fff;
   font-size: 1.2rem;
   margin: 0 3px 0 0;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div span {
   border-radius: 3px;
   background: #fff;
   width: 100%;
@@ -195,7 +211,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   display: flex;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span input {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div span input {
   color: #404040;
   font-weight: 800;
   pointer-events: none;
@@ -207,19 +223,19 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   border: none;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div span span {
   width: 15px;
   height: 15px;
   border: 1px solid gray;
   margin: 0 2px;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span:active {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div span span:active {
   fill: #606060;
   background: gainsboro;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span svg {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div span span svg {
   width: 100%;
   height: 100%;
   fill: #404040;
@@ -227,12 +243,12 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   transition: .3s;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes div span span svg.rotate {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div span span svg.rotate {
   -webkit-transform: rotateZ(180deg);
           transform: rotateZ(180deg);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes ol {
   position: absolute;
   list-style: none;
   padding: 10px;
@@ -254,7 +270,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol::before {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes ol::before {
   border-bottom-right-radius: 50px;
   content: "";
   background: #fff;
@@ -270,37 +286,37 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol.active {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes ol.active {
   opacity: 1;
   pointer-events: visible;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes ol li {
   font-weight: 900;
   cursor: pointer;
   border-top: 1px solid #909090;
   color: #303030;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li:active {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes ol li:active {
   background: #505050;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li::-moz-selection {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes ol li::-moz-selection {
   background: none;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-mes ol li::selection {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes ol li::selection {
   background: none;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-año {
   width: 100%;
   display: -ms-grid;
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-año div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -311,12 +327,12 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   width: 100%;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div h3 {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-año div h3 {
   color: #fff;
   margin-right: 3px;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div input {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-año div input {
   color: #404040;
   font-weight: 800;
   font-size: 1rem;
@@ -330,12 +346,12 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   margin-right: 5px;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div input::-webkit-inner-spin-button,
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-mesAño .container-año div input ::-webkit-outer-spin-button {
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-año div input::-webkit-inner-spin-button,
+body .container-hojaInforme .content-hojaInforme .container-mesAño .container-año div input ::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo {
   margin: 10px;
   place-self: center;
   border-radius: 25px;
@@ -361,7 +377,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
       grid-template-rows: repeat(3, auto);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div {
   margin-bottom: 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -382,14 +398,14 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   grid-column: 1/11;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div h3 {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div h3 {
   font-size: 1rem;
   margin-left: 5px;
   font-weight: 900;
   color: #fff;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div input {
   margin-left: 5px;
   background: #79d279;
   border: none;
@@ -400,28 +416,28 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   height: 25px;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input::-webkit-inner-spin-button,
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input ::-webkit-outer-spin-button {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div input::-webkit-inner-spin-button,
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div input ::-webkit-outer-spin-button {
   -webkit-appearance: initial;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input::-webkit-input-placeholder {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div input::-webkit-input-placeholder {
   color: rgba(245, 245, 245, 0.746);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input:-ms-input-placeholder {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div input:-ms-input-placeholder {
   color: rgba(245, 245, 245, 0.746);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input::-ms-input-placeholder {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div input::-ms-input-placeholder {
   color: rgba(245, 245, 245, 0.746);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo div input::placeholder {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo div input::placeholder {
   color: rgba(245, 245, 245, 0.746);
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones {
   width: 100%;
   margin-bottom: 5px;
   -webkit-box-pack: justify;
@@ -438,7 +454,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   grid-row: 10/11;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones button {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones button {
   border-radius: 5px;
   border: none;
   outline: none;
@@ -446,7 +462,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   color: #fff;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones .btn-Historial {
   background: #3399ff;
   width: 70px;
   height: 35px;
@@ -456,11 +472,11 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   pointer-events: none;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-Historial:active {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones .btn-Historial:active {
   background: #6699ff;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones .btn-guardar {
   width: 100%;
   height: 100%;
   background: #669999;
@@ -475,11 +491,11 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   transition: .5s;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-guardar:active {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones .btn-guardar:active {
   background: #6699ff;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-misHoras {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones .btn-misHoras {
   background: #3399ff;
   width: 90px;
   height: 35px;
@@ -487,11 +503,11 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   transition: .5s;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .container-servicioCampo .container-botones .btn-misHoras:active {
+body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones .btn-misHoras:active {
   background: #6699ff;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup {
+body .container-hojaInforme .content-hojaInforme .contenedor-popup {
   -ms-grid-column-align: center;
       justify-self: center;
   -webkit-backdrop-filter: blur(5px);
@@ -515,18 +531,18 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   grid-row: 1/11;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup.active {
+body .container-hojaInforme .content-hojaInforme .contenedor-popup.active {
   width: 100%;
   height: 100%;
   opacity: 1;
   pointer-events: visible;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup.active .content-popup {
+body .container-hojaInforme .content-hojaInforme .contenedor-popup.active .content-popup {
   margin-top: 150px;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div {
+body .container-hojaInforme .content-hojaInforme .contenedor-popup div {
   font-size: 1rem;
   border-radius: 10px;
   -ms-grid-column-align: center;
@@ -544,7 +560,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div svg {
+body .container-hojaInforme .content-hojaInforme .contenedor-popup div svg {
   -ms-grid-column-align: center;
       justify-self: center;
   width: 40px;
@@ -587,7 +603,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   }
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div h3 {
+body .container-hojaInforme .content-hojaInforme .contenedor-popup div h3 {
   color: #ff0000;
   text-align: center;
   -webkit-animation: entradaTitulo ease .5s forwards;
@@ -613,7 +629,7 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   }
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div button {
+body .container-hojaInforme .content-hojaInforme .contenedor-popup div button {
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
@@ -624,14 +640,19 @@ body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInf
   cursor: pointer;
 }
 
-body .caja-container-modal-hojaInforme .container-hojaInforme .container-hojaInforme .contenedor-popup div button:active {
+body .container-hojaInforme .content-hojaInforme .contenedor-popup div button:active {
   background: #0073e699;
 }
 
-body .caja-container-modal-hojaInforme .container-files {
+body .container-files {
   place-self: center;
   width: 0%;
   height: 0%;
+  -webkit-transform: translateX(-75px);
+          transform: translateX(-75px);
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   -webkit-filter: blur(100px);
           filter: blur(100px);
   pointer-events: none;
@@ -643,15 +664,17 @@ body .caja-container-modal-hojaInforme .container-files {
   -ms-grid-column: 1;
   -ms-grid-column-span: 8;
   grid-column: 1/9;
-  -ms-grid-row: 2;
-  grid-row: 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 8;
+  grid-row: 1/9;
   -ms-grid-columns: (auto)[8];
       grid-template-columns: repeat(8, auto);
-  -ms-grid-rows: (auto)[8];
-      grid-template-rows: repeat(8, auto);
+  -ms-grid-rows: (min-content)[8];
+      grid-template-rows: repeat(8, -webkit-min-content);
+      grid-template-rows: repeat(8, min-content);
 }
 
-body .caja-container-modal-hojaInforme .container-files.on {
+body .container-files.on {
   -webkit-filter: blur(0);
           filter: blur(0);
   width: 90%;
@@ -664,7 +687,14 @@ body .caja-container-modal-hojaInforme .container-files.on {
   pointer-events: visible;
 }
 
-body .caja-container-modal-hojaInforme .container-files .title-files {
+body .container-files.on .content-files {
+  place-items: center;
+  place-self: center;
+  width: 100%;
+  height: 100%;
+}
+
+body .container-files .title-files {
   justify-self: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -694,7 +724,7 @@ body .caja-container-modal-hojaInforme .container-files .title-files {
   grid-row: 1/2;
 }
 
-body .caja-container-modal-hojaInforme .container-files .title-files h3 {
+body .container-files .title-files h3 {
   margin: 0;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -707,7 +737,7 @@ body .caja-container-modal-hojaInforme .container-files .title-files h3 {
   padding: 0 25px 0 10px;
 }
 
-body .caja-container-modal-hojaInforme .container-files .title-files svg {
+body .container-files .title-files svg {
   background: #3399ff;
   padding: 5px;
   border-radius: 50px;
@@ -716,13 +746,16 @@ body .caja-container-modal-hojaInforme .container-files .title-files svg {
   width: 40px;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files {
+body .container-files .content-files {
   overflow: hidden;
   border-radius: 15px;
   border: 2px solid darkgray;
-  width: 100%;
-  height: 100%;
   background: #339966;
+  place-self: center;
+  -webkit-transition: 1s;
+  transition: 1s;
+  width: 0%;
+  height: 0%;
   display: -ms-grid;
   display: grid;
   -ms-grid-column: 1;
@@ -737,7 +770,7 @@ body .caja-container-modal-hojaInforme .container-files .content-files {
       grid-template-rows: repeat(8, auto);
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection {
+body .container-files .content-files .container-selection {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -761,7 +794,7 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
       grid-template-rows: repeat(8, auto);
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection h3 {
+body .container-files .content-files .container-selection h3 {
   color: #fff;
   font-weight: 900;
   text-align: center;
@@ -774,7 +807,7 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   grid-row: 1/2;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .btn-salir-misHoras {
+body .container-files .content-files .container-selection .btn-salir-misHoras {
   fill: #fff;
   width: 25px;
   background: rgba(255, 255, 255, 0.5);
@@ -795,11 +828,11 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   grid-row: 1/2;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .btn-salir-misHoras:active {
+body .container-files .content-files .container-selection .btn-salir-misHoras:active {
   background: rgba(255, 255, 255, 0.3);
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes {
+body .container-files .content-files .container-selection .content-selectionMes {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -819,11 +852,11 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   grid-row: 2/9;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes.active {
+body .container-files .content-files .container-selection .content-selectionMes.active {
   border-bottom-right-radius: 0;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input {
+body .container-files .content-files .container-selection .content-selectionMes input {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -836,27 +869,27 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   pointer-events: none;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input::-webkit-input-placeholder {
+body .container-files .content-files .container-selection .content-selectionMes input::-webkit-input-placeholder {
   color: #909090;
   font-size: 1rem;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input:-ms-input-placeholder {
+body .container-files .content-files .container-selection .content-selectionMes input:-ms-input-placeholder {
   color: #909090;
   font-size: 1rem;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input::-ms-input-placeholder {
+body .container-files .content-files .container-selection .content-selectionMes input::-ms-input-placeholder {
   color: #909090;
   font-size: 1rem;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes input::placeholder {
+body .container-files .content-files .container-selection .content-selectionMes input::placeholder {
   color: #909090;
   font-size: 1rem;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes span {
+body .container-files .content-files .container-selection .content-selectionMes span {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -868,15 +901,15 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   border-radius: 3px;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes span svg {
+body .container-files .content-files .container-selection .content-selectionMes span svg {
   fill: #303030;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes span:active {
+body .container-files .content-files .container-selection .content-selectionMes span:active {
   background: #79d2a6;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes ol {
+body .container-files .content-files .container-selection .content-selectionMes ol {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
@@ -892,22 +925,22 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes ol.active {
+body .container-files .content-files .container-selection .content-selectionMes ol.active {
   opacity: 1;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes ol li {
+body .container-files .content-files .container-selection .content-selectionMes ol li {
   color: #303030;
   font-weight: 900;
   cursor: pointer;
   border-top: 1px solid #303030;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-selectionMes ol li:active {
+body .container-files .content-files .container-selection .content-selectionMes ol li:active {
   background: #79d2a6;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño {
+body .container-files .content-files .container-selection .content-seleccionAño {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -929,11 +962,11 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   grid-row: 2/9;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño.active {
+body .container-files .content-files .container-selection .content-seleccionAño.active {
   border-bottom-right-radius: 0;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input {
+body .container-files .content-files .container-selection .content-seleccionAño input {
   pointer-events: none;
   width: 75px;
   border: none;
@@ -943,23 +976,23 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   font-weight: 900;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input::-webkit-input-placeholder {
+body .container-files .content-files .container-selection .content-seleccionAño input::-webkit-input-placeholder {
   color: #909090;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input:-ms-input-placeholder {
+body .container-files .content-files .container-selection .content-seleccionAño input:-ms-input-placeholder {
   color: #909090;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input::-ms-input-placeholder {
+body .container-files .content-files .container-selection .content-seleccionAño input::-ms-input-placeholder {
   color: #909090;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño input::placeholder {
+body .container-files .content-files .container-selection .content-seleccionAño input::placeholder {
   color: #909090;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño span {
+body .container-files .content-files .container-selection .content-seleccionAño span {
   cursor: pointer;
   padding: 0;
   width: 15px;
@@ -968,15 +1001,15 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   border-radius: 3px;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño span svg {
+body .container-files .content-files .container-selection .content-seleccionAño span svg {
   fill: #303030;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño span:active {
+body .container-files .content-files .container-selection .content-seleccionAño span:active {
   background: #79d2a6;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño ol {
+body .container-files .content-files .container-selection .content-seleccionAño ol {
   list-style: none;
   -ms-grid-column-align: center;
       justify-self: center;
@@ -994,12 +1027,12 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño ol.active {
+body .container-files .content-files .container-selection .content-seleccionAño ol.active {
   opacity: 1;
   pointer-events: visible;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño ol li {
+body .container-files .content-files .container-selection .content-seleccionAño ol li {
   font-weight: 900;
   cursor: pointer;
   -ms-grid-column-align: center;
@@ -1008,11 +1041,11 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   border-top: 1px solid #303030;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-selection .content-seleccionAño ol li:active {
+body .container-files .content-files .container-selection .content-seleccionAño ol li:active {
   background: #9a9a9a;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths {
+body .container-files .content-files .container-foldersMonths {
   justify-self: center;
   padding: 0 0 15px 0;
   width: 100%;
@@ -1030,16 +1063,16 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   grid-row: 2/9;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths::-webkit-scrollbar {
+body .container-files .content-files .container-foldersMonths::-webkit-scrollbar {
   background: #9a9a9a;
   height: 4px;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths::-webkit-scrollbar-thumb {
+body .container-files .content-files .container-foldersMonths::-webkit-scrollbar-thumb {
   background: rgba(250, 250, 250, 0.863);
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div {
+body .container-files .content-files .container-foldersMonths div {
   margin: 0 35px;
   width: 200px;
   height: 155px;
@@ -1047,7 +1080,7 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div h3 {
+body .container-files .content-files .container-foldersMonths div h3 {
   color: #9a9a9a;
   margin: 0 0 0 10%;
   font-size: 1rem;
@@ -1060,7 +1093,7 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   border-top-right-radius: 10px;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div div {
+body .container-files .content-files .container-foldersMonths div div {
   margin: 0;
   border-radius: 5px;
   background: #fff0b3;
@@ -1068,7 +1101,7 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   display: grid;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div div div {
+body .container-files .content-files .container-foldersMonths div div div {
   width: 90%;
   height: 5px;
   margin: 0;
@@ -1087,7 +1120,7 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   display: flex;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div div div h2 {
+body .container-files .content-files .container-foldersMonths div div div h2 {
   padding: 0 5px;
   border-radius: 25px;
   background: #3399ff;
@@ -1097,7 +1130,7 @@ body .caja-container-modal-hojaInforme .container-files .content-files .containe
   color: #fff;
 }
 
-body .caja-container-modal-hojaInforme .container-files .content-files .container-foldersMonths div div div h1 {
+body .container-files .content-files .container-foldersMonths div div div h1 {
   padding: 0 5px;
   border-radius: 25px;
   background: #3399ff;
