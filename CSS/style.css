@@ -43,8 +43,8 @@ body .container-hojaInforme.off {
   -webkit-filter: blur(100px);
           filter: blur(100px);
   place-items: center;
-  width: 0%;
-  height: 0%;
+  width: 30%;
+  height: 30%;
   -webkit-transition: .5s;
   transition: .5s;
   pointer-events: none;
@@ -53,8 +53,8 @@ body .container-hojaInforme.off {
 body .container-hojaInforme.off .title-hojaInforme {
   -webkit-transition: .5s;
   transition: .5s;
-  width: 0%;
-  height: 0%;
+  width: 30%;
+  height: 30%;
 }
 
 body .container-hojaInforme.off .content-hojaInforme {
