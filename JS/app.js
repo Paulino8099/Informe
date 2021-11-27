@@ -1,4 +1,6 @@
 
+// $ git commit -m "Correción de errores y algoritmo ya finalizado. Algunas mejoras que hacerles per ya está listo.1.6"
+
 let btnGuardar = document.querySelector(".btn-guardar");
 let btnVerMas = document.querySelector(".btn-misHoras");
 let btnHistorial = document.querySelector(".btn-historial");
