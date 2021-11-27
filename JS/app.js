@@ -13,6 +13,7 @@ let inputPresentacionVideos = document.querySelector(".input-presentacionVideo")
 let inputAño = document.querySelector(".input-año");
 let inputMes = document.querySelector(".input-mes");
 let inputMesMisHoras = document.querySelector(".input-mes-misHoras");
+let inputYearsMisHoras = document.querySelector(".input-years-files")
 
 // TODOS LOS VALORES DE LOS INPUT
 let inputAñoValue = inputAño.value;
@@ -64,8 +65,12 @@ addEventListener('DOMContentLoaded', function () {
     selectionFileYears();
     // Función para guardar todos los datos en el localStorage
     btnSaveData();
-    // Funcion para extraer archivos del localStorage solo si hay un año seleccionado
-    showFolders();
+    // Guardar el mes que seleccione el usuario en el localStorage
+    saveDataMesLocalStorage();
+    // Obtener los datos guardados previamente en el localStorage y pegarlo en el "inputMesMisHoras"
+    getDataMesLocalStorage();
+
+    filesFullYears();
 });
 
 
@@ -160,7 +165,7 @@ function guardarDatosLocalStorage() {
 
             // Valor del input 'revisitas'
             let inputRevisitasValue = inputRevisitas.value;
-            let mesAñoRevisitas = `Revisitas (${inputMes.value}/${2021})`;
+            let mesAñoRevisitas = `Revisitas (${inputMes.value}/${inputAño.value})`;
             if (localStorage.getItem(mesAñoRevisitas) === null) {
                 localStorage.setItem(mesAñoRevisitas, inputRevisitasValue)
             } else {
@@ -174,7 +179,7 @@ function guardarDatosLocalStorage() {
         function guardarComentarios() {
 
             let inputComentariosValue = inputComentarios.value;
-            let comentariosMesAño = `Comentarios (${inputMes.value}/${2021})`;
+            let comentariosMesAño = `Comentarios (${inputMes.value}/${inputAño.value})`;
             if (localStorage.getItem(comentariosMesAño) === null) {
                 localStorage.setItem(comentariosMesAño, inputComentariosValue);
             } else {
@@ -188,7 +193,7 @@ function guardarDatosLocalStorage() {
         function guardarPublicaciones() {
 
             let inputPublicacionesValue = inputPublicaciones.value;
-            let publicacionesMesAño = `Publicaciones (${inputMes.value}/${2021})`;
+            let publicacionesMesAño = `Publicaciones (${inputMes.value}/${inputAño.value})`;
             if (localStorage.getItem(publicacionesMesAño) === null) {
                 localStorage.setItem(publicacionesMesAño, inputPublicacionesValue);
             } else {
@@ -202,7 +207,7 @@ function guardarDatosLocalStorage() {
         function guardarCursosBiblicos() {
 
             let inputCursosBiblicosValue = inputCursosBiblicos.value;
-            let cursosBiblicosMesAño = `CursosBiblicos (${inputMes.value}/${2021})`;
+            let cursosBiblicosMesAño = `CursosBiblicos (${inputMes.value}/${inputAño.value})`;
             if (localStorage.getItem(cursosBiblicosMesAño) === null) {
                 localStorage.setItem(cursosBiblicosMesAño, inputCursosBiblicosValue);
             } else {
@@ -215,7 +220,7 @@ function guardarDatosLocalStorage() {
         if (inputPresentacionVideos.value != '') { guardarPresentacionVideos() };
         function guardarPresentacionVideos() {
             let inputPresentacionVideosValue = inputPresentacionVideos.value;
-            let presentacionVideoMesAño = `PresentacionVideos (${inputMes.value}/${2021})`;
+            let presentacionVideoMesAño = `PresentacionVideos (${inputMes.value}/${inputAño.value})`;
             if (localStorage.getItem(presentacionVideoMesAño) === null) {
                 localStorage.setItem(presentacionVideoMesAño, inputPresentacionVideosValue);
             } else {
@@ -303,88 +308,7 @@ function saveDataKeypress() {
     }
 }
 
-
-// Funcion para extraer archivos del localStorage solo si hay un año seleccionado y mostrarlo al usuario
-function showFolders() {
-
-    let datosLocalStorageHoras = localStorage.getItem(`Horas (Diciembre/2021)`);
-    let datosLocalStorageRevisitas = localStorage.getItem(`Revisitas (Diciembre/2021)`);
-    let datosLocalStorageComentarios = localStorage.getItem(`Comentarios (Diciembre/2021)`);
-    let datosLocalStoragePublicaciones = localStorage.getItem(`Publicaciones (Diciembre/2021)`);
-    let datosLocalStorageCursosBiblicos = localStorage.getItem(`CursosBiblicos (Diciembre/2021)`);
-    let datosLocalStoragePresentacionVideos = localStorage.getItem(`PresentacionVideos (Diciembre/2021)`);
-
-    let fileYears = document.querySelector(".list-fileYears").children;
-    for (let i = 0; i < fileYears.length; i++) {
-        fileYears[i].addEventListener('click', function () {
-            filesYears2021();
-        });
-    }
-    // Abrir carpetas de todos los meses del año 2021
-    // filesYears2021();
-
-    function filesYears2021() {
-        // Comparar si hay carpetas con las mismas caracteristicas de mes y año en el contenedor y en la base de datos de localStorage
-        let inputYearsFile = document.querySelector(".input-years-files");
-        if (inputYearsFile.value == '2021') {
-            // Si en el localStorage se encuentra esa clave entonces se va a crear una carpeta de enero del 2021 y se va a mostrar al usuario
-            if (localStorage.getItem('Horas (Diciembre/2021)') != null) {
-
-                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ HORAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-                if (localStorage.getItem('Horas (Diciembre/2021)') != null) {
-                    var datosHora = `<div><h2>Horas:</h2><h1>
-                                                                        ${datosLocalStorageHoras}
-                                                                    </h1></div>`;
-                }
-                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ REVISITAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-                if (localStorage.getItem('Revisitas (Diciembre/2021)') != null) {
-                    var datosRevisitas = `<div><h2>Revisitas:</h2><h1>
-                                                                                ${datosLocalStorageRevisitas}
-                                                                            </h1></div>`;
-                }
-                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ COMENTARIOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-                if (localStorage.getItem('Comentarios (Diciembre/2021)') != null) {
-                    var datosComentarios = `<div><h2>Comentarios:</h2><h1>
-                                                                                    ${datosLocalStorageComentarios}
-                                                                                </h1></div>`;
-                }
-                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PUBLICACIONES ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-                if (localStorage.getItem('Publicaciones (Diciembre/2021)') != null) {
-                    var datosPublicaciones = `<div><h2>Publicaciones:</h2><h1>
-                                                                                        ${datosLocalStoragePublicaciones}
-                                                                                    </h1></div>`;
-                }
-                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ CURSOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-                if (localStorage.getItem('CursosBiblicos (Diciembre/2021)') != null) {
-                    var datosCursosBiblicos = `<div><h2>Cursos Bíblicos:</h2><h1>
-                                                                                            ${datosLocalStorageCursosBiblicos}
-                                                                                        </h1></div>`;
-                }
-                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PRESENTACION ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-                if (localStorage.getItem('PresentacionVideos (Diciembre/2021)') != null) {
-                    var datosPresentacionVideos = `<div><h2>Presentación Vídeos:</h2><h1>
-                                                                                            ${datosLocalStoragePresentacionVideos}
-                                                                                        </h1></div>`;
-                }
-
-                let contenedorResultadoDelMes = document.querySelector(".container-foldersMonths");
-                contenedorResultadoDelMes.innerHTML = `<div>
-                                                            <h3>Diciembre</h3>
-                                                            <div>
-                                                                ${datosHora}
-                                                                ${datosRevisitas}
-                                                                ${datosComentarios}
-                                                                ${datosPublicaciones}
-                                                                ${datosCursosBiblicos}
-                                                                ${datosPresentacionVideos}
-                                                            </div>
-                                                        </div>`;
-}
-        }
-    };
-    // setInterval(filesYears2021, 10)
-}
-
+// Guardar el mes que seleccione el usuario en el localStorage
 saveDataMesLocalStorage();
 function saveDataMesLocalStorage() {
     let childrenFilesMes = document.querySelector(".list-month-files").children;
@@ -403,6 +327,7 @@ function saveDataMesLocalStorage() {
     }
 };
 
+// Obtener los datos guardados previamente en el localStorage y pegarlo en el "inputMesMisHoras"
 getDataMesLocalStorage();
 function getDataMesLocalStorage() {
     let datosLocalStorageMonth = localStorage.getItem('selectionMonth');
@@ -417,6 +342,283 @@ function getDataMesLocalStorage() {
 
     }
 }
+
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+function filesFullYears() {
+    let fileYears = document.querySelector(".list-fileYears").children;
+    for (let i = 0; i < fileYears.length; i++) {
+        fileYears[i].addEventListener('click', function () {
+            let contenedorResultadoDelMes = document.querySelector(".container-foldersMonths");
+            let inputYearsMisHoras = document.querySelector(".input-years-files");
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2021¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2021¦¦¦¦¦¦¦¦¦2021¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2021¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2021¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2021¦¦¦¦¦¦¦¦¦2021¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2021¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            if (inputMesMisHoras.value == 'Diciembre' && inputYearsMisHoras.value == '2021') {
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ HORAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem(`Horas (${inputMesMisHoras.value}/2021)`) != null) {
+                    var datosHora = `<div><h2>Horas:</h2><h1>
+                                                ${localStorage.getItem(`Horas (${inputMesMisHoras.value}/2021)`)}
+                                            </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ REVISITAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem(`Revisitas (${inputMesMisHoras.value}/2021)`) != null) {
+                    var datosRevisitas = `<div><h2>Revisitas:</h2><h1>
+                                                    ${localStorage.getItem(`Revisitas (${inputMesMisHoras.value}/2021)`)}
+                                                </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ COMENTARIOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem(`Comentarios (${inputMesMisHoras.value}/2021)`) != null) {
+                    var datosComentarios = `<div><h2>Comentarios:</h2><h1>
+                                                        ${localStorage.getItem(`Comentarios (${inputMesMisHoras.value}/2021)`)}
+                                                        </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PUBLICACIONES ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem(`Publicaciones (${inputMesMisHoras.value}/2021)`) != null) {
+                    var datosPublicaciones = `<div><h2>Publicaciones:</h2><h1>
+                                                        ${localStorage.getItem(`Publicaciones (${inputMesMisHoras.value}/2021)`)}
+                                                    </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ CURSOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem(`CursosBiblicos (${inputMesMisHoras.value}/2021)`) != null) {
+                    var datosCursosBiblicos = `<div><h2>Cursos Bíblicos:</h2><h1>
+                                                        ${localStorage.getItem(`CursosBiblicos (${inputMesMisHoras.value}/2021)`)}
+                                                    </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PRESENTACION ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem(`PresentacionVideos (${inputMesMisHoras.value}/2021)`) != null) {
+                    var datosPresentacionVideos = `<div><h2>Presentación Vídeos:</h2><h1>
+                                                        ${localStorage.getItem(`PresentacionVideos (${inputMesMisHoras.value}/2021)`)}
+                                                    </h1></div>`;
+                }
+                contenedorResultadoDelMes.innerHTML = `<div>
+                                                    <h3>${inputMesMisHoras.value}</h3>
+                                                    <div>
+                                                        ${datosHora}
+                                                        ${datosRevisitas}
+                                                        ${datosComentarios}
+                                                        ${datosPublicaciones}
+                                                        ${datosCursosBiblicos}
+                                                        ${datosPresentacionVideos}
+                                                    </div>
+                                                </div>`;
+            }
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2022¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2022¦¦¦¦¦¦¦¦¦2022¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2022¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2022¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2022¦¦¦¦¦¦¦¦¦2022¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦2022¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Enero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Enero¦¦¦¦¦¦¦¦¦Enero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Enero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Enero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Enero¦¦¦¦¦¦¦¦¦Enero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Enero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            // Comparar si hay carpetas con las mismas caracteristicas de mes y año en el contenedor y en la base de datos de localStorage
+            else if (inputMesMisHoras.value == 'Enero' && inputYearsMisHoras.value == '2022') {
+                // Si en el localStorage se encuentra esa clave entonces se va a crear una carpeta de enero del 2021 y se va a mostrar al usuario
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ HORAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Horas (Enero/2022)') != null) {
+                    var datosHora = `<div><h2>Horas:</h2><h1>
+                                                    ${localStorage.getItem('Horas (Enero/2022)')}
+                                                </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ REVISITAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Revisitas (Enero/2022)') != null) {
+                    var datosRevisitas = `<div><h2>Revisitas:</h2><h1>
+                                                            ${localStorage.getItem('Revisitas (Enero/2022)')}
+                                                        </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ COMENTARIOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Comentarios (Enero/2022)') != null) {
+                    var datosComentarios = `<div><h2>Comentarios:</h2><h1>
+                                                                ${localStorage.getItem('Comentarios (Enero/2022)')}
+                                                            </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PUBLICACIONES ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Publicaciones (Enero/2022)') != null) {
+                    var datosPublicaciones = `<div><h2>Publicaciones:</h2><h1>
+                                                                    ${localStorage.getItem('Publicaciones (Enero/2022)')}
+                                                                </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ CURSOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('CursosBiblicos (Enero/2022)') != null) {
+                    var datosCursosBiblicos = `<div><h2>Cursos Bíblicos:</h2><h1>
+                                                                        ${localStorage.getItem('CursosBiblicos (Enero/2022)')}
+                                                                    </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PRESENTACION ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('PresentacionVideos (Enero/2022)') != null) {
+                    var datosPresentacionVideos = `<div><h2>Presentación Vídeos:</h2><h1>
+                                                                        ${localStorage.getItem('PresentacionVideos (Enero/2022)')}
+                                                                    </h1></div>`;
+                }
+
+                contenedorResultadoDelMes.innerHTML = `<div>
+                                                                    <h3>Enero</h3>
+                                                                    <div>
+                                                                        ${datosHora}
+                                                                        ${datosRevisitas}
+                                                                        ${datosComentarios}
+                                                                        ${datosPublicaciones}
+                                                                        ${datosCursosBiblicos}
+                                                                        ${datosPresentacionVideos}
+                                                                    </div>
+                                                                </div>`;
+            }
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Febrero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Febrero¦¦¦¦¦¦¦¦¦Febrero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Febrero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Febrero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Febrero¦¦¦¦¦¦¦¦¦Febrero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Febrero¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            else if (inputMesMisHoras == 'Febrero' && inputYearsMisHoras.value == '2022') {
+                // Si en el localStorage se encuentra esa clave entonces se va a crear una carpeta de enero del 2021 y se va a mostrar al usuario
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ HORAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Horas (Febrero/2022)') != null) {
+                    var datosHora = `<div><h2>Horas:</h2><h1>
+                                                    ${localStorage.getItem('Horas (Febrero/2022)')}
+                                                </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ REVISITAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Revisitas (Febrero/2022)') != null) {
+                    var datosRevisitas = `<div><h2>Revisitas:</h2><h1>
+                                                            ${localStorage.getItem('Revisitas (Febrero/2022)')}
+                                                        </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ COMENTARIOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Comentarios (Febrero/2022)') != null) {
+                    var datosComentarios = `<div><h2>Comentarios:</h2><h1>
+                                                                ${localStorage.getItem('Comentarios (Febrero/2022)')}
+                                                            </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PUBLICACIONES ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Publicaciones (Febrero/2022)') != null) {
+                    var datosPublicaciones = `<div><h2>Publicaciones:</h2><h1>
+                                                                    ${localStorage.getItem('Publicaciones (Febrero/2022)')}
+                                                                </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ CURSOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('CursosBiblicos (Febrero/2022)') != null) {
+                    var datosCursosBiblicos = `<div><h2>Cursos Bíblicos:</h2><h1>
+                                                                        ${localStorage.getItem('CursosBiblicos (Febrero/2022)')}
+                                                                    </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PRESENTACION ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('PresentacionVideos (Febrero/2022)') != null) {
+                    var datosPresentacionVideos = `<div><h2>Presentación Vídeos:</h2><h1>
+                                                                        ${localStorage.getItem('PresentacionVideos (Febrero/2022)')}
+                                                                    </h1></div>`;
+                }
+
+                contenedorResultadoDelMes.innerHTML = `<div>
+                                                                    <h3>Febrero</h3>
+                                                                    <div>
+                                                                        ${datosHora}
+                                                                        ${datosRevisitas}
+                                                                        ${datosComentarios}
+                                                                        ${datosPublicaciones}
+                                                                        ${datosCursosBiblicos}
+                                                                        ${datosPresentacionVideos}
+                                                                    </div>
+                                                                </div>`;
+            }
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Marzo¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Marzo¦¦¦¦¦¦¦¦¦Marzo¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Marzo¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Marzo¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Marzo¦¦¦¦¦¦¦¦¦Marzo¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Marzo¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            else if (inputMesMisHoras == 'Marzo' && inputYearsMisHoras.value == '2022') {
+                // Si en el localStorage se encuentra esa clave entonces se va a crear una carpeta de enero del 2021 y se va a mostrar al usuario
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ HORAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Horas (Marzo/2022)') != null) {
+                    var datosHora = `<div><h2>Horas:</h2><h1>
+                                                    ${localStorage.getItem('Horas (Marzo/2022)')}
+                                                </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ REVISITAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Revisitas (Marzo/2022)') != null) {
+                    var datosRevisitas = `<div><h2>Revisitas:</h2><h1>
+                                                            ${localStorage.getItem('Revisitas (Marzo/2022)')}
+                                                        </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ COMENTARIOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Comentarios (Marzo/2022)') != null) {
+                    var datosComentarios = `<div><h2>Comentarios:</h2><h1>
+                                                                ${localStorage.getItem('Comentarios (Marzo/2022)')}
+                                                            </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PUBLICACIONES ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('Publicaciones (Marzo/2022)') != null) {
+                    var datosPublicaciones = `<div><h2>Publicaciones:</h2><h1>
+                                                                    ${localStorage.getItem('Publicaciones (Marzo/2022)')}
+                                                                </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ CURSOS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('CursosBiblicos (Marzo/2022)') != null) {
+                    var datosCursosBiblicos = `<div><h2>Cursos Bíblicos:</h2><h1>
+                                                                        ${localStorage.getItem('CursosBiblicos (Marzo/2022)')}
+                                                                    </h1></div>`;
+                }
+                // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PRESENTACION ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+                if (localStorage.getItem('PresentacionVideos (Marzo/2022)') != null) {
+                    var datosPresentacionVideos = `<div><h2>Presentación Vídeos:</h2><h1>
+                                                                        ${localStorage.getItem('PresentacionVideos (Marzo/2022)')}
+                                                                    </h1></div>`;
+                }
+
+                contenedorResultadoDelMes.innerHTML = `<div>
+                                                                    <h3>Marzo</h3>
+                                                                    <div>
+                                                                        ${datosHora}
+                                                                        ${datosRevisitas}
+                                                                        ${datosComentarios}
+                                                                        ${datosPublicaciones}
+                                                                        ${datosCursosBiblicos}
+                                                                        ${datosPresentacionVideos}
+                                                                    </div>
+                                                                </div>`;
+            }
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+            else {
+                contenedorResultadoDelMes.innerHTML = '';
+            };
+        });
+    };
+};
+
+
+
 
 
 
