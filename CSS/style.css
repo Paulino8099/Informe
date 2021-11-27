@@ -40,29 +40,12 @@ body .container-hojaInforme {
 }
 
 body .container-hojaInforme.off {
-  -webkit-filter: blur(100px);
-          filter: blur(100px);
+  -webkit-filter: blur(150px);
+          filter: blur(150px);
   place-items: center;
-  width: 30%;
-  height: 30%;
   -webkit-transition: .5s;
   transition: .5s;
   pointer-events: none;
-}
-
-body .container-hojaInforme.off .title-hojaInforme {
-  -webkit-transition: .5s;
-  transition: .5s;
-  width: 30%;
-  height: 30%;
-}
-
-body .container-hojaInforme.off .content-hojaInforme {
-  -webkit-transition: .5s;
-  transition: .5s;
-  place-self: center;
-  width: 30%;
-  height: 30%;
 }
 
 body .container-hojaInforme .title-hojaInforme {

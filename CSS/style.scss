@@ -35,23 +35,10 @@ body {
 		grid-template-columns: repeat(8, auto);
 		grid-template-rows: 1;
 		&.off {
-			filter: blur(100px);
+			filter: blur(150px);
 			place-items: center;
-			width: 30%;
-			height: 30%;
 			transition: .5s;
 			pointer-events: none;
-			.title-hojaInforme {
-				transition: .5s;
-				width: 30%;
-				height: 30%;
-			}
-			.content-hojaInforme {
-				transition: .5s;
-				place-self: center;
-				width: 30%;
-				height: 30%;
-			}
 		}
 		//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Titulo Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 		.title-hojaInforme {
