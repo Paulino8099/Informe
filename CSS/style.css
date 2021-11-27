@@ -1,6 +1,6 @@
 @charset "UTF-8";
 * {
-  font-size: 15px;
+  font-size: 18px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -87,8 +87,8 @@ body .container-hojaInforme .title-hojaInforme svg {
   background: #669999;
   border-radius: 50px;
   fill: #fff;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   z-index: 10;
 }
 
@@ -108,7 +108,7 @@ body .container-hojaInforme .title-hojaInforme h3 {
 }
 
 body .container-hojaInforme .content-hojaInforme {
-  margin-top: 0;
+  margin-top: -2px;
   -webkit-box-shadow: 0 0 10px #00000079;
           box-shadow: 0 0 10px #00000079;
   border: 3px solid #aaa;
@@ -205,8 +205,8 @@ body .container-hojaInforme .content-hojaInforme .container-mesAño .container-m
 }
 
 body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div span span {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border: 1px solid gray;
   margin: 0 2px;
 }
@@ -224,16 +224,11 @@ body .container-hojaInforme .content-hojaInforme .container-mesAño .container-m
   transition: .3s;
 }
 
-body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes div span span svg.rotate {
-  -webkit-transform: rotateZ(180deg);
-          transform: rotateZ(180deg);
-}
-
 body .container-hojaInforme .content-hojaInforme .container-mesAño .container-mes ol {
   position: absolute;
   list-style: none;
   padding: 10px;
-  margin-top: 33px;
+  margin-top: 35px;
   margin-right: 0;
   right: -3px;
   background: #fff;
@@ -241,9 +236,7 @@ body .container-hojaInforme .content-hojaInforme .container-mesAño .container-m
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border-radius: 5px;
   z-index: 12;
   opacity: 0;
   pointer-events: none;
@@ -260,8 +253,8 @@ body .container-hojaInforme .content-hojaInforme .container-mesAño .container-m
   -webkit-transform: rotateZ(45deg);
           transform: rotateZ(45deg);
   position: absolute;
-  top: -7px;
-  right: 4px;
+  top: -5px;
+  right: 5px;
   z-index: 1;
   display: -ms-grid;
   display: grid;
@@ -366,6 +359,9 @@ body .container-hojaInforme .content-hojaInforme .container-servicioCampo div {
   justify-self: start;
   border-radius: 10px;
   background: #aaaaaa;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   height: 90%;
   -ms-flex-item-align: center;
       align-self: center;
@@ -393,7 +389,7 @@ body .container-hojaInforme .content-hojaInforme .container-servicioCampo div in
   outline: none;
   color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.746);
-  width: 32px;
+  width: 40px;
   height: 25px;
 }
 
@@ -458,11 +454,11 @@ body .container-hojaInforme .content-hojaInforme .container-servicioCampo .conta
 }
 
 body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones .btn-guardar {
-  width: 100%;
-  height: 100%;
   background: #669999;
   border-radius: 5px;
-  width: 70px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   height: 50px;
   border: none;
   outline: none;
@@ -478,7 +474,9 @@ body .container-hojaInforme .content-hojaInforme .container-servicioCampo .conta
 
 body .container-hojaInforme .content-hojaInforme .container-servicioCampo .container-botones .btn-misHoras {
   background: #3399ff;
-  width: 90px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   height: 35px;
   -webkit-transition: .5s;
   transition: .5s;
@@ -862,7 +860,7 @@ body .container-files .content-files .container-selection .content-selectionMes 
       align-self: center;
   cursor: pointer;
   padding: 0;
-  width: 15px;
+  width: 20px;
   height: 20px;
   border: 1px solid #303030;
   border-radius: 3px;
@@ -886,7 +884,7 @@ body .container-files .content-files .container-selection .content-selectionMes 
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 5px;
-  margin: 28px 0 0 38px;
+  margin: 28px 0 0 27px;
   opacity: 0;
   display: -ms-grid;
   display: grid;
@@ -936,6 +934,8 @@ body .container-files .content-files .container-selection .content-seleccionAño
 body .container-files .content-files .container-selection .content-seleccionAño input {
   pointer-events: none;
   width: 75px;
+  height: 25px;
+  border-radius: 50px;
   border: none;
   outline: none;
   padding: 5px;
@@ -962,7 +962,7 @@ body .container-files .content-files .container-selection .content-seleccionAño
 body .container-files .content-files .container-selection .content-seleccionAño span {
   cursor: pointer;
   padding: 0;
-  width: 15px;
+  width: 20px;
   height: 20px;
   border: 1px solid #303030;
   border-radius: 3px;
@@ -985,8 +985,8 @@ body .container-files .content-files .container-selection .content-seleccionAño
   border-bottom-right-radius: 5px;
   background: #fff;
   position: absolute;
-  margin-top: 165px;
-  margin-left: 62px;
+  margin-top: 200px;
+  margin-left: 67px;
   padding: 5px;
   opacity: 0;
   pointer-events: none;
