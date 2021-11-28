@@ -42,7 +42,6 @@ body .container-hojaInforme {
 body .container-hojaInforme.off {
   -webkit-filter: blur(150px);
           filter: blur(150px);
-  place-items: center;
   -webkit-transition: .5s;
   transition: .5s;
   pointer-events: none;

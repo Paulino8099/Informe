@@ -36,7 +36,6 @@ body {
 		grid-template-rows: 1;
 		&.off {
 			filter: blur(150px);
-			place-items: center;
 			transition: .5s;
 			pointer-events: none;
 		}
