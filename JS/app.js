@@ -78,9 +78,6 @@ addEventListener('DOMContentLoaded', function () {
 
 
 // Esta función es para guardar el valor del mes en INPUT MES al hacer click en cualquiera de los meses que se encuentran en la lista 
-
-
-
 let listaMes = document.querySelector(".lista-mes");
 function seleccionMes() {
     // Con esta algoritmo podemos extraer los elementos hijos de la lista de los meses ya que al ser una lista esta genera un arreglo que podemos extraer facilmente.
@@ -353,6 +350,14 @@ function getDataMesLocalStorage() {
 //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 function filesFullYears() {
+    let settingsMisHoras = `
+                            <div class="ajustes-misHoras">
+                                <button class="btn-eliminar-misHoras">Eliminar</button>
+                                <button class="btn-editar-misHoras">Editar</button>
+                                <button class="btn-verMas-misHoras">Ver Mas</button>
+                            </div>`;
+
+
     let fileYears = document.querySelector(".list-fileYears").children;
     for (let i = 0; i < fileYears.length; i++) {
         fileYears[i].addEventListener('click', function () {
@@ -419,6 +424,7 @@ function filesFullYears() {
                                                         ${datosPublicaciones}
                                                         ${datosCursosBiblicos}
                                                         ${datosPresentacionVideos}
+                                                        ${settingsMisHoras}
                                                     </div>
                                                 </div>`;
             }
@@ -486,6 +492,7 @@ function filesFullYears() {
                                                                         ${datosPublicaciones}
                                                                         ${datosCursosBiblicos}
                                                                         ${datosPresentacionVideos}
+                                                                        ${settingsMisHoras}
                                                                     </div>
                                                                 </div>`;
             }
@@ -544,6 +551,7 @@ function filesFullYears() {
                                                                         ${datosPublicaciones}
                                                                         ${datosCursosBiblicos}
                                                                         ${datosPresentacionVideos}
+                                                                        ${settingsMisHoras}
                                                                     </div>
                                                                 </div>`;
             }
@@ -602,6 +610,7 @@ function filesFullYears() {
                                                                         ${datosPublicaciones}
                                                                         ${datosCursosBiblicos}
                                                                         ${datosPresentacionVideos}
+                                                                        ${settingsMisHoras}
                                                                     </div>
                                                                 </div>`;
             }
