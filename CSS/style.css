@@ -775,6 +775,7 @@ body .container-files .content-files .container-popupFiles .content-popupFiles {
   border-radius: 5px;
   -webkit-transition: .5s;
   transition: .5s;
+  width: 60%;
   display: -ms-grid;
   display: grid;
   -ms-grid-column: 1;
