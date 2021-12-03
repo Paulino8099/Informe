@@ -26,10 +26,6 @@ let textAlertPopup = document.querySelector(".text-alert-popup");
 
 //VENTANA EMERGENTE POPUP 
 
-let btnVentanaPopup = document.querySelector(".btn-alert-popup");
-btnVentanaPopup.addEventListener('click', () => {
-    ventanaPopup.classList.remove("active");
-});
 
 // Cambiar del modal principal al modal de archivos del usuario
 cambiarModal();
@@ -55,20 +51,28 @@ function cambiarModalRevertir() {
 // ============================================================================================================
 // ============================================================================================================
 addEventListener('DOMContentLoaded', function () {
+
     // Functión para agregar escucha btn de la lista para seleccionar los años de las carpetas
     listDeploy();
+
     // Función para guardar datos en el localStorage al hacer click cualquiera de los input para las horas de servicio. Hay que tener en cuenta que solo se van a guardar datos al presionar la tecla de enter 
     saveDataKeypress();
+
     // Función para seleccionar el mes mediante algoritmo
     seleccionMes();
+
     // Guardar el año seleccionado en el localStorage para que siempre se quede guardado y cuando el usuario entre siempre va a aparecer puesto en el input de archivos de los años
     saveFullYearsLocalStorage()
-    // Función para seleccionar un año para sacar los datos del localStorage correspodiente al año selecionado
-    selectionFileYears();
+
+    // Función para seleccionar un año y ponerlo en localStorage y tambien para sacarlo y ponerlo en el input años de "Mis Horas" y tambien para dejar pegado el año seleccionado por el usuario al cargar la pagina de cero.
+    selectionFullYears();
+
     // Función para guardar todos los datos en el localStorage
     btnSaveData();
+
     // Guardar el mes que seleccione el usuario en el localStorage
     saveDataMesLocalStorage();
+
     // Obtener los datos guardados previamente en el localStorage y pegarlo en el "inputMesMisHoras"
     getDataMesLocalStorage();
 
@@ -77,21 +81,31 @@ addEventListener('DOMContentLoaded', function () {
 
 
 
-// Esta función es para guardar el valor del mes en INPUT MES al hacer click en cualquiera de los meses que se encuentran en la lista 
-let listaMes = document.querySelector(".lista-mes");
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-Informe¦Input-Mes-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-Informe¦Input-Mes-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// Esta función es para guardar el valor del mes en input mes de la ventana "Hoja de informe" al hacer click en cualquiera de los meses que se encuentran en la lista de input mes de la ventana "Hoja de Informe".
 function seleccionMes() {
+    inputMes.value = localStorage.getItem('InputMesInforme');
     // Con esta algoritmo podemos extraer los elementos hijos de la lista de los meses ya que al ser una lista esta genera un arreglo que podemos extraer facilmente.
-    let hijos = listaMes.children;
-    for (let i = 0; i < hijos.length; i++) {
+    let listaMes = document.querySelector(".lista-mes").children;
+    for (let i = 0; i < listaMes.length; i++) {
         // Agregar eventos escucha a todos los hijos de la listas de meses
-        hijos[i].addEventListener('click', () => {
-            // Con este algoritmo podemos extraer el VALOR del elemento donde se escuche el click
-            let extraerValorList = hijos[i].childNodes[0].nodeValue;
-            inputMes.value = extraerValorList;
+        listaMes[i].addEventListener('click', () => {
+            // Al hacer click en cualquiera de los meses de la lista, guardar ese valor en el localStorage
+            let extraerValorList = listaMes[i].childNodes[0].nodeValue;
+            if (localStorage.getItem('InputMesInforme') === null) {
+                localStorage.setItem('InputMesInforme', extraerValorList);
+            }
+            // pegar el año guardado en localStorage en el input mes al cargar la pagina de cero
+            inputMes.value = localStorage.getItem('InputMesInforme');
         })
     }
 }
-
 
 // Desplegar la lista de los meses del input de "Hoja de Informe" al hacer clic en el boton
 document.querySelector(".content-btn-listaMes").addEventListener('click', () => {
@@ -107,29 +121,91 @@ for (let i = 0; i < listMesesInforme.length; i++) {
     });
 }
 
-// Función para alertar al usuario que debe de llenar input correctamente
+
+
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// Función para alertar al usuario que debe de llenar los input correctamente y para confirmarle que ha guardado correctamente
 function evaluarCamposVacios() {
-    if (inputAño.value === '') {
-        textAlertPopup.innerHTML = `¡El campo "año" está vacío! ${'<br>'} Debe de introducir un año.`;
+    if (inputMes.value == '') {
         // Ventana Popup
         ventanaPopup.classList.add("active");
-    } else if (inputAño.value != '' && !(inputAño.value >= 2021 && inputAño.value <= 2025)) {
-        textAlertPopup.innerHTML = `¡Debe de proporcionar un año correspodiente a: 2021-2025!`;
-        // Ventana Popup
-        ventanaPopup.classList.add("active");
-    } else if (inputMes.value === '') {
+
+        // Texto del popup "Hoja de Informe"
         textAlertPopup.innerHTML = `¡Por favor, seleccione un mes!`;
+
+        // Desactivar el SVG de error del popup de informe
+        document.querySelector(".svg-error").classList.add('active');
+
+        // Activar el SVG para indicar que todo es correcto del popup "informe"
+        document.querySelector(".svg-correcto").classList.remove('active');
+    }
+    else if (inputAño.value == '') {
         // Ventana Popup
         ventanaPopup.classList.add("active");
+
+        // Texto del popup "Hoja de Informe"
+        textAlertPopup.innerHTML = `¡El campo "año" está vacío! ${'<br>'} Debe de introducir un año.`;
+
+        // Desactivar el SVG de error del popup de informe
+        document.querySelector(".svg-error").classList.add('active');
+
+        // Activar el SVG para indicar que todo es correcto del popup "informe"
+        document.querySelector(".svg-correcto").classList.remove('active');
+    }
+    else if (!(inputAño.value >= 2021 && inputAño.value <= 2022)) {
+        // Ventana Popup
+        ventanaPopup.classList.add("active");
+
+        // Texto del popup "Hoja de Informe"
+        textAlertPopup.innerHTML = `¡Debe de proporcionar un año correspodiente a: 2021-2022!`;
+
+        // Desactivar el SVG de error del popup de informe
+        document.querySelector(".svg-error").classList.add('active');
+
+        // Activar el SVG para indicar que todo es correcto del popup "informe"
+        document.querySelector(".svg-correcto").classList.remove('active');
     }
     // Función para detectar si todos los campos de entradas para las horas de servicio están vacíos y presentar una alerta diciendo que los campos están vacíos y que el usuario debe de proporcionar algunos datos.
-    else if (((inputHoras.value == '') && (inputRevisitas.value == '')) && ((inputComentarios.value == '') && (inputPublicaciones.value == '')) && ((inputCursosBiblicos.value == '') && (inputPresentacionVideos.value == ''))) {
-        textAlertPopup.innerHTML = `¡Nada que guardar! <br> Debe de introducir datos.`;
+    else if ((inputHoras.value == '') && (inputRevisitas.value == '') && (inputComentarios.value == '') && (inputPublicaciones.value == '') && (inputCursosBiblicos.value == '') && (inputPresentacionVideos.value == '')) {
         // Ventana Popup
         ventanaPopup.classList.add("active");
+
+        // Texto del popup "Hoja de Informe"
+        textAlertPopup.innerHTML = `¡Nada que guardar! <br> Debe de introducir datos.`;
+
+        // Estilos del texto popup "Hoja de Informe"
+        document.querySelector(".text-alert-popup").style.color = '#ff0000';
+
+        // Desactivar el SVG de error del popup de informe
+        document.querySelector(".svg-error").classList.add('active');
+
+        // Activar el SVG para indicar que todo es correcto del popup "informe"
+        document.querySelector(".svg-correcto").classList.remove('active');
     }
-    else {
-        false
+
+    // Función para indicarle al usuario que sus datos han sido guardados correctamente mediante un mensaje popup de "informe"
+    else if ((inputAño.value == 2021 || inputAño.value == 2022) && (inputHoras.value != '')) {
+        // Contenedor popup de "Hoja de Informe"
+        document.querySelector(".contenedor-popup").classList.add('active');
+
+        // Desactivar el SVG de error del popup de "Hoja de Informe"
+        document.querySelector(".svg-error").classList.remove('active');
+
+        // Activar el SVG para indicar que todo es correcto del popup "Hoja de Informe"
+        document.querySelector(".svg-correcto").classList.add('active');
+
+        // Estilos del texto popup "Hoja de Informe"
+        document.querySelector(".text-alert-popup").style.color = '#00b300';
+
+        // texto del popup de "Hoja de Informe"
+        document.querySelector(".text-alert-popup").innerHTML = '';
+        document.querySelector(".text-alert-popup").innerHTML = '¡Guardado correctamente!';
     }
 }
 
@@ -141,15 +217,13 @@ function btnSaveData() {
     });
 }
 
-// Función con algoritmo para conectarse al localStorage y guardar datos
+// Función para conectarse al localStorage y guardar datos
 function guardarDatosLocalStorage() {
 
     if (inputMes.value != '' && (inputAño.value >= 2021 && inputAño.value <= 2023)) {
         /* Aqui lo que trato de hacer es que solo se van a guardar las horas en caso de que el 
           input de horas se encuntra con datos de lo contrario, no se va a enviar nada al localStorage*/
-        if (inputHoras.value != '') { guardarHoras() }
-        function guardarHoras() {
-
+        if (inputHoras.value != '') {
             let inputHorasValue = inputHoras.value;
             let mesAñoHoras = `Horas (${inputMes.value}/${inputAño.value})`;
             // SI LOCAL STORAGE NO CONTIENE NINGUN DATO SE LE ENVIA UNO NUEVO
@@ -158,15 +232,13 @@ function guardarDatosLocalStorage() {
             } else {
                 let datosLocalStorage = localStorage.getItem(mesAñoHoras);
                 datosLocalStorage = parseInt(inputHorasValue) + parseInt(datosLocalStorage);
-                localStorage.setItem(mesAñoHoras, inputHorasValue);
+                localStorage.setItem(mesAñoHoras, datosLocalStorage);
             }
         }
 
         /* Aqui lo que trato de hacer es que solo se van a guardar las horas en caso de que el
           input de horas se encuntra con datos de lo contrario, no se va a enviar nada al localStorage*/
-        if (inputRevisitas.value != '') { guardarRevisitas() };
-        function guardarRevisitas() {
-
+        if (inputRevisitas.value != '') {
             // Valor del input 'revisitas'
             let inputRevisitasValue = inputRevisitas.value;
             let mesAñoRevisitas = `Revisitas (${inputMes.value}/${inputAño.value})`;
@@ -175,13 +247,11 @@ function guardarDatosLocalStorage() {
             } else {
                 let datosLocalStorage = localStorage.getItem(mesAñoRevisitas);
                 datosLocalStorage = parseInt(inputRevisitasValue) + parseInt(datosLocalStorage);
-                localStorage.setItem(mesAñoRevisitas, inputRevisitasValue);
+                localStorage.setItem(mesAñoRevisitas, datosLocalStorage);
             }
         };
 
-        if (inputComentarios.value != '') { guardarComentarios() };
-        function guardarComentarios() {
-
+        if (inputComentarios.value != '') {
             let inputComentariosValue = inputComentarios.value;
             let comentariosMesAño = `Comentarios (${inputMes.value}/${inputAño.value})`;
             if (localStorage.getItem(comentariosMesAño) === null) {
@@ -189,13 +259,11 @@ function guardarDatosLocalStorage() {
             } else {
                 let datosLocalStorage = localStorage.getItem(comentariosMesAño);
                 datosLocalStorage = parseInt(datosLocalStorage) + parseInt(inputComentariosValue);
-                localStorage.setItem(comentariosMesAño, inputComentariosValue);
+                localStorage.setItem(comentariosMesAño, datosLocalStorage);
             }
         };
 
-        if (inputPublicaciones.value != '') { guardarPublicaciones() };
-        function guardarPublicaciones() {
-
+        if (inputPublicaciones.value != '') {
             let inputPublicacionesValue = inputPublicaciones.value;
             let publicacionesMesAño = `Publicaciones (${inputMes.value}/${inputAño.value})`;
             if (localStorage.getItem(publicacionesMesAño) === null) {
@@ -203,12 +271,11 @@ function guardarDatosLocalStorage() {
             } else {
                 let datosLocalStorage = localStorage.getItem(publicacionesMesAño);
                 datosLocalStorage = parseInt(datosLocalStorage) + parseInt(inputPublicacionesValue);
-                localStorage.setItem(publicacionesMesAño, inputPublicacionesValue);
+                localStorage.setItem(publicacionesMesAño, datosLocalStorage);
             }
         };
 
-        if (inputCursosBiblicos.value != '') { guardarCursosBiblicos() };
-        function guardarCursosBiblicos() {
+        if (inputCursosBiblicos.value != '') {
 
             let inputCursosBiblicosValue = inputCursosBiblicos.value;
             let cursosBiblicosMesAño = `CursosBiblicos (${inputMes.value}/${inputAño.value})`;
@@ -217,12 +284,11 @@ function guardarDatosLocalStorage() {
             } else {
                 let datosLocalStorage = localStorage.getItem(cursosBiblicosMesAño);
                 datosLocalStorage = parseInt(datosLocalStorage) + parseInt(inputCursosBiblicosValue);
-                localStorage.setItem(cursosBiblicosMesAño, inputCursosBiblicosValue);
+                localStorage.setItem(cursosBiblicosMesAño, datosLocalStorage);
             }
         }
 
-        if (inputPresentacionVideos.value != '') { guardarPresentacionVideos() };
-        function guardarPresentacionVideos() {
+        if (inputPresentacionVideos.value != '') {
             let inputPresentacionVideosValue = inputPresentacionVideos.value;
             let presentacionVideoMesAño = `PresentacionVideos (${inputMes.value}/${inputAño.value})`;
             if (localStorage.getItem(presentacionVideoMesAño) === null) {
@@ -230,14 +296,67 @@ function guardarDatosLocalStorage() {
             } else {
                 let datosLocalStorage = localStorage.getItem(presentacionVideoMesAño);
                 datosLocalStorage = parseInt(datosLocalStorage) + parseInt(inputPresentacionVideosValue);
-                localStorage.setItem(presentacionVideoMesAño, inputPresentacionVideosValue);
+                localStorage.setItem(presentacionVideoMesAño, datosLocalStorage);
             }
         }
     }
 }
 
+// Función para agreagr escucha al dar click en cualquiera de los input de "Hoja de Informe" para que así se pueda activar la opción de poder guarar al presionar la tecla enter.
+function saveDataKeypress() {
+    let btnListMesInforme = document.querySelector(".content-btn-listaMes")
+    const allInput = document.querySelector(".container-servicioCampo").children;
+    for (i = 0; i < allInput.length; i++) {
+        // lista para activar la pulsacion de la tecla enter al dar click a cualquiera de sus elementos
+        let btns = [allInput[i], btnListMesInforme, btnGuardar, inputAño];
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                addEventListener('keyup', (e) => {
+                    if (e.keyCode === 13) {
+                        guardarDatosLocalStorage();
+                        evaluarCamposVacios();
+                    }
+                })
+            })
+        }
+    }
+}
 
-// Función para desplegar lista del input de "Mis Horas" al dar click en el boton
+// Botón aceptar del popup para ocultarlo
+let btnVentanaPopup = document.querySelector(".btn-alert-popup");
+btnVentanaPopup.addEventListener('click', () => {
+    // texto del popup de "Hoja de Informe"
+    document.querySelector(".text-alert-popup").innerHTML = '';
+
+    // Estilos del texto popup "Hoja de Informe"
+    document.querySelector(".text-alert-popup").style.color = 'none';
+
+    ventanaPopup.classList.remove("active");
+
+    // Condicional para evaluar si se debe de limpiar todos los campos de los input. Esta condición va a evaluar si debe de borrar o no.
+    if ((inputMes.value == 'Enero' || inputMes.value == 'Febrero' || inputMes.value == 'Marzo' || inputMes.value == 'Abril' || inputMes.value == 'Mayo' || inputMes.value == 'Junio' || inputMes.value == 'Julio' || inputMes.value == 'Agosto' || inputMes.value == 'Septiembre' || inputMes.value == 'Octubre' || inputMes.value == 'Noviembre' || inputMes.value == 'Diciembre') && (inputAño.value >= 2021 || inputAño.value <= 2022) && ((inputHoras.value == '')
+        || (inputRevisitas.value == '') || (inputComentarios.value == '') || (inputPublicaciones.value == '') || (inputCursosBiblicos.value == '') || (inputPresentacionVideos.value == ''))) {
+
+        inputHoras.value = '';
+        inputRevisitas.value = '';
+        inputComentarios.value = '';
+        inputPublicaciones.value = '';
+        inputCursosBiblicos.value = '';
+        inputPresentacionVideos.value = '';
+    }
+});
+
+
+
+
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Año-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Año-MisHoras¦Input-Año-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Año-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Año-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Año-MisHoras¦Input-Año-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Año-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// Función para desplegar lista del input de los años de "Mis Horas" al dar click en el boton
 function listDeploy() {
     let btnListDeploy = document.querySelector(".btn-list-deploy");
     btnListDeploy.addEventListener('click', function () {
@@ -248,8 +367,39 @@ function listDeploy() {
 
     });
 };
+// Función para seleccionar un año y ponerlo en localStorage y tambien para sacarlo y ponerlo en el input años de "Mis Horas" y tambien para dejar pegado el año seleccionado por el usuario al cargar la pagina de cero.
+function selectionFullYears() {
+    // Dejar puesto el año al cargar el documento de cero
+    let datosLocalStorageFullYears = localStorage.getItem('selectionFullYears');
+    document.querySelector('.input-years-files').value = datosLocalStorageFullYears;
 
-// Desplegar la lista del input de los meses de "Mis Horas"
+    // Cambiar el input de años de "Mis Horas" al hacer click en cualquiera de los años que se encuentra en la lista de despliegue
+    let fileYears = document.querySelector(".list-fileYears").children;
+    for (let i = 0; i < fileYears.length; i++) {
+        fileYears[i].addEventListener('click', function () {
+            let datosLocalStorage = localStorage.getItem('selectionFullYears');
+            document.querySelector('.input-years-files').value = datosLocalStorage;
+        });
+    }
+}
+
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+
+
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-MisHoras¦Input-Mes-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-MisHoras¦Input-Mes-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// Desplegar la lista del input de los meses de "Mis Horas" al hacer click en su respectivo botón
 listDeployFiles();
 function listDeployFiles() {
     let btnListMonthFiles = document.querySelector(".btn-list-deployMonth");
@@ -260,77 +410,12 @@ function listDeployFiles() {
         document.querySelector(".content-selectionMes").classList.toggle('active');
     })
 }
-
-// Función para seleccionar un año y ponerlo en localStorage
-function selectionFileYears() {
-    // Dejar puesto el año al cargar el documento de cero
-    let datosLocalStorageFullYears = localStorage.getItem('selectionFullYears');
-    document.querySelector('.input-years-files').value = datosLocalStorageFullYears;
-
-    let fileYears = document.querySelector(".list-fileYears").children;
-    for (let i = 0; i < fileYears.length; i++) {
-        fileYears[i].addEventListener('click', function () {
-            let datosLocalStorage = localStorage.getItem('selectionFullYears');
-            document.querySelector('.input-years-files').value = datosLocalStorage;
-        });
-    }
-}
-
-// Función para guardar el año de "Hoja de Informe" selecionado en el localStorage
-function saveFullYearsLocalStorage() {
-    let fileYears = document.querySelector(".list-fileYears").children;
-    for (let i = 0; i < fileYears.length; i++) {
-        fileYears[i].addEventListener('click', function () {
-            let fileYearsChildrens = fileYears[i].childNodes[0].nodeValue;
-            if (localStorage.getItem('selectionFullYears') === null) {
-                localStorage.setItem('selectionFullYears', fileYearsChildrens)
-            } else {
-                let datosLocalStorage = localStorage.getItem('selectionFullYears');
-                datosLocalStorage = fileYearsChildrens;
-                localStorage.setItem('selectionFullYears', datosLocalStorage);
-            }
-        });
-    }
-
-}
-
-// Función para escuchar un click en todos los input y al escuchar que se presiona la tecla enter se van a guardar los datos
-function saveDataKeypress() {
-    let btnListMesInforme = document.querySelector(".content-btn-listaMes")
-    const allInput = document.querySelector(".container-servicioCampo").children;
-    for (i = 0; i < allInput.length; i++) {
-        // lista para activar la pulsacion de la tecla enter al dar click a cualquiera de sus elementos
-        let btns = [allInput[i], btnListMesInforme, btnGuardar, inputAño];
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
-                addEventListener('keyup', function (e) {
-                    if (e.keyCode === 13) {
-                        guardarDatosLocalStorage();
-                        evaluarCamposVacios();
-                        // // recorrer todos los elementos de la lista de los meses de la ventana "Informe"
-                        // let listaMesesInforme = document.querySelector(".lista-mes")
-                        // for (let i = 0; i < listaMesesInforme.length; i++) {
-                        //     if (inputAño == listaMesesInforme[i] && inputMes != '') {
-                        //         inputHoras.value = '';
-                        //         inputRevisitas.value = '';
-                        //         inputComentarios.value = '';
-                        //         inputPublicaciones.value = '';
-                        //         inputCursosBiblicos.value = '';
-                        //         inputPresentacionVideos.value = '';
-                        //     }
-                        // }
-                    }
-                })
-            })
-        }
-    }
-}
-
-// Guardar el mes que seleccione el usuario en el localStorage
+// Guardar el mes que seleccione el usuario de la lista del input mes de "Mis Horas" en el localStorage
 saveDataMesLocalStorage();
 function saveDataMesLocalStorage() {
     let childrenFilesMes = document.querySelector(".list-month-files").children;
     for (let i = 0; i < childrenFilesMes.length; i++) {
+        // agregando un escucha a todos los elementos de la lista del input mes de "Mis Horas"
         childrenFilesMes[i].addEventListener('click', function () {
             let nodeValue = childrenFilesMes[i].childNodes[0].nodeValue;
             if (localStorage.getItem('selectionMonth' === null)) {
@@ -344,6 +429,33 @@ function saveDataMesLocalStorage() {
 
     }
 };
+
+
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Años-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Años-MisHoras¦Input-Años-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Años-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Años-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Años-MisHoras¦Input-Años-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Años-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// Función para guardar el año selecionado de la lista del input año de "Hoja de Informe" en el localStorage
+function saveFullYearsLocalStorage() {
+    let fileYears = document.querySelector(".list-fileYears").children;
+    for (let i = 0; i < fileYears.length; i++) {
+        fileYears[i].addEventListener('click', function () {
+            let fileYearsChildrens = fileYears[i].childNodes[0].nodeValue;
+            
+            if (localStorage.getItem('selectionFullYears') === null) {
+                localStorage.setItem('selectionFullYears', fileYearsChildrens)
+            } else {
+                let datosLocalStorage = localStorage.getItem('selectionFullYears');
+                datosLocalStorage = fileYearsChildrens;
+                localStorage.setItem('selectionFullYears', datosLocalStorage);
+            }
+        });
+    }
+
+}
 
 // Obtener los datos guardados previamente en el localStorage y pegarlo en el "inputMesMisHoras"
 getDataMesLocalStorage();
@@ -361,25 +473,19 @@ function getDataMesLocalStorage() {
     }
 }
 
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦All Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-// Mostrar archivos de acuerdo a la selección del usuario
+// Mostrar archivos de acuerdo a la selección del usuario de la lista de los meses de "Mis Horas"
 function filesFullYears() {
-    // Cuando se escuche un click en la lista del input mes de "Mis Horas" se van a actualizar los archivos 
+    // Cuando se escuche un click en cada elemento de la lista del input mes de "Mis Horas" se van a actualizar los archivos 
     let listMonth = document.querySelector(".list-month-files").children;
     for (let i = 0; i < listMonth.length; i++) {
         listMonth[i].addEventListener("click", function () {
-            SearchFiles();
-            // Despliegue de lista de los meses (Mis Horas)
+            buscandoCarpetas();
+            // Ocultando lista del input mes de "Mis Horas"
             document.querySelector(".list-month-files").classList.toggle('active');
-            // Es para pegar el pequeño borde del input con la lista
+
+            // Ocultando borde del input mes de "Mis Horas"
             document.querySelector(".content-selectionMes").classList.toggle('active');
-            // boton para borrar alrchivos seleccionados del localStorage
+            // boton para borrar archivos seleccionados del localStorage
             btnDeleteFiles();
         });
     };
@@ -388,11 +494,12 @@ function filesFullYears() {
     let fileYears = document.querySelector(".list-fileYears").children;
     for (let i = 0; i < fileYears.length; i++) {
         fileYears[i].addEventListener('click', function () {
-            SearchFiles();
+            buscandoCarpetas();
             // Despliegue de lista de los años de (Mis Horas)
             document.querySelector(".list-fileYears").classList.toggle('active');
             // Es para pegar el pequeño borde del input con la lista
             document.querySelector(".content-seleccionAño").classList.toggle('active');
+            btnDeleteFiles();
         });
     };
 };
@@ -443,7 +550,7 @@ function activarPopupMisHoras() {
 
 
 // buscando todos los archivos que hay en el localStorage
-function SearchFiles() {
+function buscandoCarpetas() {
     let settingsMisHoras = `
                                 <div class="ajustes-misHoras">
                                     <button class="btn-eliminar-misHoras">Eliminar</button>
@@ -467,7 +574,7 @@ function SearchFiles() {
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-    if (inputMesMisHoras.value == 'Diciembre' && inputYearsMisHoras.value == '2021') {
+    if (inputMesMisHoras.value == 'Diciembre' || inputYearsMisHoras.value == '2021') {
         // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ HORAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
         if (localStorage.getItem(`Horas (Diciembre/2021)`) != null) {
             var datosHora = `<div><h2>Horas:</h2><h1>
@@ -1752,7 +1859,8 @@ function deleteFiles() {
         localStorage.removeItem(`CursosBiblicos (${inputMesMisHoras.value}/2022)`);
         localStorage.removeItem(`PresentacionVideos (${inputMesMisHoras.value}/2022)`);
     };
-    SearchFiles();
+    // Es para actualizar las carpetas
+    buscandoCarpetas();
 };
 
 
@@ -1820,7 +1928,7 @@ function deleteFiles() {
 //     if (mes == 12) mes = mesesDelAño[11];
 // }
 
-
+// (inputMes.value == 'Enero' || inputMes.value == 'Febrero' || inputMes.value == 'Marzo' || inputMes.value == 'Abril' || inputMes.value == 'Mayo' || inputMes.value == 'Junio' || inputMes.value == 'Julio' || inputMes.value == 'Agosto' || inputMes.value == 'Septiembre' || inputMes.value == 'Octubre' || inputMes.value == 'Noviembre' || inputMes.value == 'Diciembre') && 
 
 // // Funcion para extraer el mes que se haya elegido dentro del INPUT MES
 // extraerDatosInputMes();
