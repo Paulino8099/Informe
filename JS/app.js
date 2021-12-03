@@ -88,7 +88,7 @@ addEventListener('DOMContentLoaded', function () {
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-Informe¦Input-Mes-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-// Esta función es para guardar el valor del mes en input mes de la ventana "Hoja de informe" al hacer click en cualquiera de los meses que se encuentran en la lista de input mes de la ventana "Hoja de Informe".
+// Esta función es para guardar el valor del mes en el localStorage y en el input mes de la ventana "Hoja de informe" al hacer click en cualquiera de los meses que se encuentran en la lista de input mes de la ventana "Hoja de Informe".
 function seleccionMes() {
     inputMes.value = localStorage.getItem('InputMesInforme');
     // Con esta algoritmo podemos extraer los elementos hijos de la lista de los meses ya que al ser una lista esta genera un arreglo que podemos extraer facilmente.
@@ -100,6 +100,10 @@ function seleccionMes() {
             let extraerValorList = listaMes[i].childNodes[0].nodeValue;
             if (localStorage.getItem('InputMesInforme') === null) {
                 localStorage.setItem('InputMesInforme', extraerValorList);
+            } else {
+                let datosLocalStorage = localStorage.getItem('InputMesInforme');
+                datosLocalStorage = extraerValorList;
+                localStorage.setItem('InputMesInforme', datosLocalStorage)
             }
             // pegar el año guardado en localStorage en el input mes al cargar la pagina de cero
             inputMes.value = localStorage.getItem('InputMesInforme');
@@ -117,7 +121,6 @@ let listMesesInforme = document.querySelector(".lista-mes").children;
 for (let i = 0; i < listMesesInforme.length; i++) {
     listMesesInforme[i].addEventListener('click', () => {
         document.querySelector(".lista-mes").classList.toggle('active');
-
     });
 }
 
