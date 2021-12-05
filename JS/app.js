@@ -1,5 +1,5 @@
 
-// $ git commit -m "Correción de errores y algoritmo ya finalizado. Algunas mejoras que hacerles per ya está listo.1.6"
+// git commit -m "Correciones de errores 1.9"
 
 let btnGuardar = document.querySelector(".btn-guardar");
 let btnVerMas = document.querySelector(".btn-misHoras");
@@ -127,6 +127,24 @@ for (let i = 0; i < listMesesInforme.length; i++) {
 
 
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guia Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guia Informe¦¦¦¦¦¦¦Guia Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guia Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guia Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guia Informe¦¦¦¦¦¦¦Guia Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guia Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+document.querySelector(".btn-guia").addEventListener('click', function () {
+    // Entrar en el modal "Guia"
+    document.querySelector(".container-guia").classList.add('active');
+
+    // salir del modal "Guia"
+    document.querySelector(".btn-salir-guia").addEventListener('click', function () {
+        document.querySelector(".container-guia").classList.remove('active');
+    });
+});
+
+
+// ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
@@ -134,7 +152,7 @@ for (let i = 0; i < listMesesInforme.length; i++) {
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Guardar-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 // Función para alertar al usuario que debe de llenar los input correctamente y para confirmarle que ha guardado correctamente
-function evaluarCamposVacios() {
+function evaluarCamposVacios2() {
     if (inputMes.value == '') {
         // Ventana Popup
         ventanaPopup.classList.add("active");
@@ -192,8 +210,8 @@ function evaluarCamposVacios() {
         document.querySelector(".svg-correcto").classList.remove('active');
     }
 
-    // Función para indicarle al usuario que sus datos han sido guardados correctamente mediante un mensaje popup de "informe"
-    else if ((inputAño.value == 2021 || inputAño.value == 2022) && (inputHoras.value != '')) {
+    // Función para indicarle al usuario que sus datos han sido guardados correctamente mediante un mensaje popup de "informe", esta acción se va a cumplir si hay uno o mas input llenos de lo contrario esta acción nunca se va a cumplir
+    else if ((inputAño.value >= 2021 || inputAño.value <= 2022) && ((inputHoras.value == '') || (inputRevisitas.value == '') || (inputComentarios.value == '') || (inputPublicaciones.value == '') || (inputCursosBiblicos.value == '') || (inputPresentacionVideos.value == ''))) {
         // Contenedor popup de "Hoja de Informe"
         document.querySelector(".contenedor-popup").classList.add('active');
 
@@ -212,35 +230,22 @@ function evaluarCamposVacios() {
     }
 }
 
-// Función para guardar datos en el localStorage al presionar el botón "guardar"
-function btnSaveData() {
-    btnGuardar.addEventListener("click", function () {
-        guardarDatosLocalStorage();
-        evaluarCamposVacios();
-    });
-}
-
 // Función para conectarse al localStorage y guardar datos
 function guardarDatosLocalStorage() {
 
     if (inputMes.value != '' && (inputAño.value >= 2021 && inputAño.value <= 2023)) {
-        /* Aqui lo que trato de hacer es que solo se van a guardar las horas en caso de que el 
-          input de horas se encuntra con datos de lo contrario, no se va a enviar nada al localStorage*/
         if (inputHoras.value != '') {
-            let inputHorasValue = inputHoras.value;
             let mesAñoHoras = `Horas (${inputMes.value}/${inputAño.value})`;
             // SI LOCAL STORAGE NO CONTIENE NINGUN DATO SE LE ENVIA UNO NUEVO
             if (localStorage.getItem(mesAñoHoras) === null) {
-                localStorage.setItem(mesAñoHoras, inputHorasValue);
+                localStorage.setItem(mesAñoHoras, inputHoras.value);
             } else {
                 let datosLocalStorage = localStorage.getItem(mesAñoHoras);
-                datosLocalStorage = parseInt(inputHorasValue) + parseInt(datosLocalStorage);
+                datosLocalStorage = parseInt(inputHoras.value) + parseInt(datosLocalStorage);
                 localStorage.setItem(mesAñoHoras, datosLocalStorage);
             }
         }
 
-        /* Aqui lo que trato de hacer es que solo se van a guardar las horas en caso de que el
-          input de horas se encuntra con datos de lo contrario, no se va a enviar nada al localStorage*/
         if (inputRevisitas.value != '') {
             // Valor del input 'revisitas'
             let inputRevisitasValue = inputRevisitas.value;
@@ -305,25 +310,23 @@ function guardarDatosLocalStorage() {
     }
 }
 
-// Función para agreagr escucha al dar click en cualquiera de los input de "Hoja de Informe" para que así se pueda activar la opción de poder guarar al presionar la tecla enter.
-function saveDataKeypress() {
-    let btnListMesInforme = document.querySelector(".content-btn-listaMes")
-    const allInput = document.querySelector(".container-servicioCampo").children;
-    for (i = 0; i < allInput.length; i++) {
-        // lista para activar la pulsacion de la tecla enter al dar click a cualquiera de sus elementos
-        let btns = [allInput[i], btnListMesInforme, btnGuardar, inputAño];
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
-                addEventListener('keyup', (e) => {
-                    if (e.keyCode === 13) {
-                        guardarDatosLocalStorage();
-                        evaluarCamposVacios();
-                    }
-                })
-            })
-        }
-    }
+// Función para guardar datos en el localStorage al presionar el botón "guardar"
+function btnSaveData() {
+    btnGuardar.addEventListener("click", function () {
+        guardarDatosLocalStorage();
+        evaluarCamposVacios2();
+    });
 }
+
+// Función para agreagr eventos "escucha" al dar click en cualquiera de los input de "Hoja de Informe" para que así se pueda activar la opción de poder guardar al presionar la tecla enter.
+function saveDataKeypress() {
+    document.querySelector(".content-hojaInforme").addEventListener("keyup", function (e) {
+        if (e.keyCode === 13) {
+            guardarDatosLocalStorage();
+            evaluarCamposVacios2();
+        };
+    });
+};
 
 // Botón aceptar del popup para ocultarlo
 let btnVentanaPopup = document.querySelector(".btn-alert-popup");
@@ -349,6 +352,15 @@ btnVentanaPopup.addEventListener('click', () => {
     }
 });
 
+
+
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 
 
@@ -385,15 +397,6 @@ function selectionFullYears() {
         });
     }
 }
-
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis Horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-
 
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Input-Mes-MisHoras¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
@@ -447,7 +450,7 @@ function saveFullYearsLocalStorage() {
     for (let i = 0; i < fileYears.length; i++) {
         fileYears[i].addEventListener('click', function () {
             let fileYearsChildrens = fileYears[i].childNodes[0].nodeValue;
-            
+
             if (localStorage.getItem('selectionFullYears') === null) {
                 localStorage.setItem('selectionFullYears', fileYearsChildrens)
             } else {
@@ -478,7 +481,7 @@ function getDataMesLocalStorage() {
 
 // Mostrar archivos de acuerdo a la selección del usuario de la lista de los meses de "Mis Horas"
 function filesFullYears() {
-    // Cuando se escuche un click en cada elemento de la lista del input mes de "Mis Horas" se van a actualizar los archivos 
+    // Cuando se escuche un click en cada elemento de la lista del input mes de "Mis Horas" se van a actualizar los los datos de las carpetas o las mismas carpetas.
     let listMonth = document.querySelector(".list-month-files").children;
     for (let i = 0; i < listMonth.length; i++) {
         listMonth[i].addEventListener("click", function () {
@@ -493,7 +496,7 @@ function filesFullYears() {
         });
     };
 
-    // Cuando se escuche un click en la lita del input año de "Mis Horas" se van a actualizar los archivos
+    // Cuando se escuche un click en la lita del input año de "Mis Horas" se van a actualizar los datos de las carpetas o las mismas carpetas.
     let fileYears = document.querySelector(".list-fileYears").children;
     for (let i = 0; i < fileYears.length; i++) {
         fileYears[i].addEventListener('click', function () {
@@ -507,6 +510,14 @@ function filesFullYears() {
     };
 };
 
+
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Carpetas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Carpetas¦¦¦¦¦¦¦¦¦Carpetas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Carpetas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Carpetas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Carpetas¦¦¦¦¦¦¦¦¦Carpetas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Carpetas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+//  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 // boton para borrar alrchivos seleccionados del localStorage
 function btnDeleteFiles() {
@@ -527,15 +538,13 @@ function btnDeleteFiles() {
     };
 };
 
-desactivarPopupMisHoras();
-function desactivarPopupMisHoras() {
-    let btnCancelarPopupMisHoras = document.querySelector('.btnCancelar-popup-misHoras');
-    // desactivar la ventana popup para confirmar borrar la carpeta
-    btnCancelarPopupMisHoras.addEventListener('click', function () {
-        let popupMisHoras = document.querySelector('.container-popupFiles');
-        popupMisHoras.classList.remove('active');
-    });
-};
+document.querySelector('.btn-recharge').addEventListener('click', function () {
+    buscandoCarpetas();
+
+    btnDeleteFiles();
+});
+
+
 
 function activarPopupMisHoras() {
     let popupMisHoras = document.querySelector('.container-popupFiles');
@@ -1867,6 +1876,15 @@ function deleteFiles() {
 };
 
 
+desactivarPopupMisHoras();
+function desactivarPopupMisHoras() {
+    let btnCancelarPopupMisHoras = document.querySelector('.btnCancelar-popup-misHoras');
+    // desactivar la ventana popup para confirmar borrar la carpeta
+    btnCancelarPopupMisHoras.addEventListener('click', function () {
+        let popupMisHoras = document.querySelector('.container-popupFiles');
+        popupMisHoras.classList.remove('active');
+    });
+};
 
 
 

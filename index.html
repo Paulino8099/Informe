@@ -28,7 +28,7 @@
     <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
     <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
     <div class="container-hojaInforme">
-        <!-- CONTENEDOR DEL TITULO DE TODO EL MODAL DE INFORME -->
+        <!-- Titulo -->
         <div class="title-hojaInforme">
             <svg viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0V0z" fill="none" />
@@ -38,7 +38,23 @@
             <h3>Hoja de Informe</h3>
         </div>
         <div class="content-hojaInforme">
-            <!-- CONTENEDOR DEL NOMBRE Y DEL MES -->
+            <!-- Guia -->
+            <div class="container-guia">
+                <div class="content-guia">
+                    <h3>Modificar datos</h3>
+                    <hr class="line-title">
+                    <p>Para modificar los datos de cualquiera de los campos (Horas, Revisitas, Comentarios,
+                        Publicaciones,Cursos Bíblicos y Presentación de Videos), debe de introducir la cifra que desea
+                        eliminar en su respectivo campo teniendo en cuenta que esta cifra o número tienen que ser
+                        negativos <b>(Tenga en cuenta haber seleccionado el mes y año antes de modificar los datos)</b>.
+                    </p>
+                    <hr class="line-parragraph">
+                    <span>
+                        <button class="btn-salir-guia">Salir</button>
+                    </span>
+                </div>
+            </div>
+            <!-- Nombre y Mes -->
             <div class="container-mesAño">
                 <div class="container-mes">
                     <div>
@@ -99,14 +115,16 @@
                     <input class="input-cursosBiblicos" type="number" placeholder="click" maxlength="2">
                 </div>
                 <div class="container-presentacionVideos">
-                    <h3>Presentación de Vídeos:</h3>
+                    <h3>Presentación de Videos:</h3>
                     <input class="input-presentacionVideo" type="number" placeholder="click" maxlength="2">
                 </div>
-                <div class="container-botones">
-                    <button class="btn-Historial">Historial</button>
-                    <button class="btn-guardar">Guardar</button>
-                    <button class="btn-misHoras">Mis Horas</button>
-                </div>
+            </div>
+            <!-- Botones -->
+            <div class="container-botones">
+                <button class="btn-guia">Guia</button>
+                <!-- <button class="btn-Historial">Historial</button> -->
+                <button class="btn-guardar">Guardar</button>
+                <button class="btn-misHoras">Mis Horas</button>
             </div>
             <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
             <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Popup-Informe¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
@@ -137,11 +155,11 @@
     </div>
 
     <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
-    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
-    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Files¦¦¦¦¦¦¦Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
-    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
-    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Files¦¦¦¦¦¦¦Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
-    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Files¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
+    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
+    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis horas¦¦¦¦¦¦¦Mis horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
+    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
+    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis horas¦¦¦¦¦¦¦Mis horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
+    <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Mis horas¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
     <!-- ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
     <div class="container-files">
         <!-- Titulo Files -->
@@ -169,13 +187,16 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Boton recargar "Mis Horas"-->
+            <button class="btn-recharge">Recargar datos</button>
+
+            <!-- Boton Salir "Mis Horas"-->
+            <button class="btn-salir-misHoras">Atrás</button>
+
+            <!-- Contenedor para la selección del mes y año de servicio -->
             <div class="container-selection">
                 <h3>Mes y año de servicio:</h3>
-                <!-- Boton Salir -->
-                <svg class="btn-salir-misHoras" viewBox="0 0 24 24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
-                </svg>
                 <!-- Seleccionar Mes -->
                 <div class="content-selectionMes">
                     <input class="input-mes-misHoras" type="text" maxlength="9" placeholder="Mes:">
