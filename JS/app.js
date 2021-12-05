@@ -1,5 +1,5 @@
 
-// git commit -m "Correciones de errores 1.9"
+// git commit - m "Correciones de errores. Añadidura de nueva ventana modal para algunas guias practicas de la app para el usuario. Nuevo diseño para la vista de las carpetas. Nuevos botones para mayor acceso añadido. Mejor rediseño para toda la interfaz de la app. 2.0"
 
 let btnGuardar = document.querySelector(".btn-guardar");
 let btnVerMas = document.querySelector(".btn-misHoras");
