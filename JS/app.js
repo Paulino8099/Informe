@@ -211,7 +211,7 @@ function evaluarCamposVacios2() {
     }
 
     // Función para indicarle al usuario que sus datos han sido guardados correctamente mediante un mensaje popup de "informe", esta acción se va a cumplir si hay uno o mas input llenos de lo contrario esta acción nunca se va a cumplir
-    else if ((inputAño.value >= 2021 || inputAño.value <= 2022) && ((inputHoras.value == '') || (inputRevisitas.value == '') || (inputComentarios.value == '') || (inputPublicaciones.value == '') || (inputCursosBiblicos.value == '') || (inputPresentacionVideos.value == ''))) {
+    else if ((inputAño.value >= 2021 || inputAño.value <= 2025) && (inputHoras.value != '') || (inputRevisitas.value != '') || (inputComentarios.value != '') || (inputPublicaciones.value != '') || (inputCursosBiblicos.value != '') || (inputPresentacionVideos.value != '')) {
         // Contenedor popup de "Hoja de Informe"
         document.querySelector(".contenedor-popup").classList.add('active');
 
@@ -340,8 +340,8 @@ btnVentanaPopup.addEventListener('click', () => {
     ventanaPopup.classList.remove("active");
 
     // Condicional para evaluar si se debe de limpiar todos los campos de los input. Esta condición va a evaluar si debe de borrar o no.
-    if ((inputMes.value == 'Enero' || inputMes.value == 'Febrero' || inputMes.value == 'Marzo' || inputMes.value == 'Abril' || inputMes.value == 'Mayo' || inputMes.value == 'Junio' || inputMes.value == 'Julio' || inputMes.value == 'Agosto' || inputMes.value == 'Septiembre' || inputMes.value == 'Octubre' || inputMes.value == 'Noviembre' || inputMes.value == 'Diciembre') && (inputAño.value >= 2021 || inputAño.value <= 2022) && ((inputHoras.value == '')
-        || (inputRevisitas.value == '') || (inputComentarios.value == '') || (inputPublicaciones.value == '') || (inputCursosBiblicos.value == '') || (inputPresentacionVideos.value == ''))) {
+    if ((inputMes.value == 'Enero' || inputMes.value == 'Febrero' || inputMes.value == 'Marzo' || inputMes.value == 'Abril' || inputMes.value == 'Mayo' || inputMes.value == 'Junio' || inputMes.value == 'Julio' || inputMes.value == 'Agosto' || inputMes.value == 'Septiembre' || inputMes.value == 'Octubre' || inputMes.value == 'Noviembre' || inputMes.value == 'Diciembre') && (inputAño.value >= 2021 || inputAño.value <= 2022) && ((inputHoras.value != '')
+        || (inputRevisitas.value != '') || (inputComentarios.value != '') || (inputPublicaciones.value != '') || (inputCursosBiblicos.value != '') || (inputPresentacionVideos.value != ''))) {
 
         inputHoras.value = '';
         inputRevisitas.value = '';
@@ -560,7 +560,9 @@ function activarPopupMisHoras() {
     });
 };
 
-
+/**
+ * !Error en la vista de los datos para la carpeta de Diciembre
+ */
 // buscando todos los archivos que hay en el localStorage
 function buscandoCarpetas() {
     let settingsMisHoras = `
@@ -1571,6 +1573,11 @@ function buscandoCarpetas() {
                                                     </div>
                                                 </div>`;
     }
+    /**
+     * ? Me esta dando muchos errores especificamente cuando se selecciona la carpeta correspondinte a Diciembre
+     * ? Uno de esos errores es que no me permite ver los datos correspondiente a esa carpeta.
+     * ! Error... carpeta con error
+     */
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
@@ -1578,7 +1585,8 @@ function buscandoCarpetas() {
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦Diciembre¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-    else if (inputMesMisHoras.value == 'Diciembre' && inputYearsMisHoras.value == '2022') {
+    else if (inputMesMisHoras.value == 'Diciembre' && inputYearsMisHoras.value == 2022) {
+        console.log(1254)
         // Si en el localStorage se encuentra esa clave entonces se va a crear una carpeta de enero del 2021 y se va a mostrar al usuario
         // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ HORAS ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
         if (localStorage.getItem(`Horas (Diciembre/2022)`) != null) {
@@ -1633,7 +1641,7 @@ function buscandoCarpetas() {
         // ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ PRESENTACION ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
         if (localStorage.getItem(`PresentacionVideos (Diciembre/2022)`) != null) {
             var datosPresentacionVideos = `<div><h2>Presentación Vídeos:</h2><h1>
-                                                        ${localStorage.getItem(`PresentacionVideos (Diciembre/2021)`)}
+                                                        ${localStorage.getItem(`PresentacionVideos (Diciembre/2022)`)}
                                                     </h1></div>`;
         } else {
             var datosPresentacionVideos = `<div><h2>Presentación de videos:</h2><h1>
@@ -1661,7 +1669,19 @@ function buscandoCarpetas() {
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦None¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
     //  ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
     else {
-        contenedorResultadoDelMes.innerHTML = '';
+        console.log(1254)
+        contenedorResultadoDelMes.innerHTML = `<div>
+                                                    <h3>Error</h3>
+                                                    <div>
+                                                        ${'Error'}
+                                                        ${'Error'}
+                                                        ${'Error'}
+                                                        ${'Error'}
+                                                        ${'Error'}
+                                                        ${'Error'}
+                                                        ${'Error'}
+                                                    </div>
+                                                </div>`;
     };
 };
 

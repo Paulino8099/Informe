@@ -1002,6 +1002,7 @@ body .container-files .content-files .container-selection .content-selectionMes 
   position: relative;
   -webkit-transition: .5s;
   transition: .5s;
+  z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
